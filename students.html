@@ -2,56 +2,93 @@
 <html>
 <head>
     <title>Students</title>
-   
     <style>
           body{
-                padding: 0%;
-                margin: 0%;
-                background-color: rgb(0, 0, 0);
+
+            padding: 0%;
+            margin: 0%;
+            background-color: rgb(0, 0, 0);
             }
        
 
-   .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 300px;
-        margin: 0;
-        text-align: center;
-        font-family: arial;
-        background-color: darkslategrey
-    }
-    .hl {
-        border: 3px solid #000000;
-        height: 8px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    }
-    .add_new_student{
+           .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 300px;
+                margin: 0;
+                text-align: center;
+                font-family: arial;
+                background-color: darkslategrey
+            }
+            .hl {
+                border: 3px solid #000000;
+                height: 8px;
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            }
+            .add_new_student{
 
-        background-color:darkslategrey;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-    .search_button{
-  
+                background-color:darkslategrey;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                margin-top: 50;
+                cursor: pointer;
+            }
+            .search_button{
 
-        background-color:darkslategrey;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
 
+                background-color:darkslategrey;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin-top: 50px;
+                cursor: pointer;
+              }
+            .nav_bar{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-image: linear-gradient(to bottom, #000000 , #333333 );
+                height: 45px;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333333;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+
+            }
+            .nav_bar li{
+                float: left;
+                display: inline;
+                height: 100%;
+                padding: 10px;
+                padding-right: 20px;
+                padding-left: 20px;
+                border-right: 1px solid #ccc;
+                border-bottom: none;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+            .nav_bar li a{
+                text-decoration: none;
+                height: max-content;
+                text-align: center;
+                color: rgb(209, 203, 203);
+            }
+            .nav_bar li:hover{
+                background-color: #333333;
+            }
 
 
     </style>
@@ -118,7 +155,20 @@
 <button class = "add_new_student">
     <a href="add_new_student.html ">Add New Student</a>
 </button>
-
+    <ul class="nav_bar">
+        <li>
+            <a href="main_page.html">Home</a>
+        </li>
+        <li>
+            <a href="/main_page.html#Anouncments">Announcements</a>
+        </li>
+        <li>
+            <a href="main_page.html">Courses</a>
+        </li>
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+    </ul>
 
 </body>
 
