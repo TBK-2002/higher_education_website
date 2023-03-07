@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <style>
+        body{
+            padding: 0%;
+            margin: 0%;
+            background-color: #0A0A0A;
+        }
+        .centered{
+            font-size: x-large;
+            font-family:sans-serif;
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .nav_bar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-image: linear-gradient(to bottom, #000000 , #333333 );
+            height: 45px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+
+        }
+        .nav_bar li{
+            float: left;
+            display: inline;
+            height: 100%;
+            padding: 10px;
+            padding-right: 20px;
+            padding-left: 20px;
+            border-right: 1px solid #ccc;
+            border-bottom: none;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .nav_bar li a{
+            text-decoration: none;
+            height: max-content;
+            text-align: center;
+            color: rgb(209, 203, 203);
+        }
+        .nav_bar li:hover{
+            background-color: #333333;
+        }
+        .title{
+            color: white;
+            font-family: inherit;
+            position:relative;
+            top: 70px;
+            left: 0px;
+            font-size: 26.5px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div class="centered">
+                <div class="title">
+                    <form>
+                        <label for="fname">First name:</label><br>
+                        <input type="text" id="fname" name="fname"><br><br>
+
+                        <label for="lname">Last name:</label><br>
+                        <input type="text" id="lname" name="lname"><br><br>
+
+                        <label for="phone">Phone number:</label><br>
+                        <input type="tel" id="phone" name="phone"><br><br>
+
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email"><br><br>
+
+                        <label for="gpa">GPA:</label><br>
+                        <input type="number" id="gpa" name="gpa"><br><br>
+
+                        <label for="birthday">Birthday:</label><br>
+                        <input type="date" id="birthday" name="birthday"><br><br>
+
+                        <input type="submit" value="Submit">
+
+
+                    </form>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+    <ul class="nav_bar">
+        <li>
+            <a href="main_page.html">Home</a>
+        </li>
+        <li>
+            <a href="#Anouncments">Announcements</a>
+        </li>
+        <li>
+            <a href="courses.html">Courses</a>
+        </li>
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+    </ul>
+
+
+</body>
+</html>
