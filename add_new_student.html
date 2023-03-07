@@ -9,13 +9,13 @@
             margin: 0%;
             background-color: #0A0A0A;
         }
-        .centered{
-            font-size: x-large;
-            font-family:sans-serif;
-            text-align: center;
-            box-sizing: border-box;
-            position: relative;
-        }
+        /*.centered{*/
+        /*    font-size: x-large;*/
+        /*    font-family:sans-serif;*/
+        /*    text-align: center;*/
+        /*    box-sizing: border-box;*/
+        /*    position: relative;*/
+        /*}*/
         .nav_bar{
             position: fixed;
             top: 0;
@@ -61,6 +61,12 @@
             left: 0px;
             font-size: 26.5px;
         }
+        label{
+            width: 100px;
+            display: inline-block;
+            font-size: Large;
+        }
+
     </style>
 </head>
 <body>
@@ -69,23 +75,32 @@
             <div class="centered">
                 <div class="title">
                     <form>
-                        <label for="fname">First name:</label><br>
-                        <input type="text" id="fname" name="fname"><br><br>
+                        <label for="fname">First name:</label>
+                        <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br><br>
 
-                        <label for="lname">Last name:</label><br>
-                        <input type="text" id="lname" name="lname"><br><br>
+                        <label for="lname">Last name:</label>
+                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"><br><br>
 
-                        <label for="phone">Phone number:</label><br>
-                        <input type="tel" id="phone" name="phone"><br><br>
+                        <label for="universty">Universty:</label>
+                        <input type="text" id="universty" name="universty" placeholder="Universty"><br><br>
 
-                        <label for="email">Email:</label><br>
-                        <input type="email" id="email" name="email"><br><br>
+                        <label for="stdID">STD ID:</label>
+                        <input type="number" id="stdID" name="stdID" placeholder="ID"><br><br>
 
-                        <label for="gpa">GPA:</label><br>
-                        <input type="number" id="gpa" name="gpa"><br><br>
+                        <label for="gender">Gender:</label>
+                        <input type="text" id="gender" name="gender" placeholder="Gender"><br><br>
 
-                        <label for="birthday">Birthday:</label><br>
-                        <input type="date" id="birthday" name="birthday"><br><br>
+                        <label for="department">Department:</label>
+                        <input type="text" id="department" name="department" placeholder="Department"><br><br>
+
+                        <label for="status">Status:</label>
+                        <input type="text" id="status" name="status" placeholder="Active or Inactive"><br><br>
+
+                        <label for="courses">Courses:</label>
+                        <input type="text" id="courses" name="courses" placeholder="Course 1"> <input type="text" id="status" name="status" placeholder="Course 2"> <input type="text" id="status" name="status" placeholder="Course 3"> <br><br>
+
+                        <label for="birthday">Birthdate:</label>
+                        <input type="date" id="birthday" name="birthday" ><br><br>
 
                         <input type="submit" value="Submit">
 
