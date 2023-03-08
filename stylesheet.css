@@ -1,0 +1,256 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    background-color: rgb(0, 0, 0);
+    font-family: 'Roboto', sans-serif;
+}
+.slogan{
+    overflow: hidden;
+    height: 60%;
+    width: 40%;
+    padding: 0%;
+    margin: 0%;
+    border: 0%;
+    position: relative;
+    margin-left: auto; 
+    margin-right: 30;
+    margin-top: auto;
+    top: 20%;
+    bottom: auto;
+    margin-bottom: auto;
+}
+.slogan h1{
+    border: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 5vh;
+    text-align: center;
+    background-image: linear-gradient(to right, #FF0000 , #000000 );
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 0.5px black;
+}
+.main_image{
+    background-image: url("https://thehill.com/wp-content/uploads/sites/2/2022/03/ca_collegeenrollment_istock.jpg?w=1280&h=720&crop=1");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    border: 0%;
+    position: relative;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ffffff;
+}
+.barvard_logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    height: 85%;
+    object-fit: scale-down;
+}
+.nav_bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #000000 , #333333 );
+    height: 45px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+}
+.nav_bar li{
+    float: left;
+    display: inline;
+    height: 100%;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.nav_bar li a{
+    text-decoration: none;
+    height: max-content;
+    text-align: center;
+    color: rgb(209, 203, 203);
+}
+.nav_bar li:hover{
+    background-color: #333333;
+}
+h1 {
+    display: block;
+    color: white;
+    margin-left: 2%;
+    margin-top: 20;
+    margin-bottom: 25;
+    font-size: 5vh;
+}
+h2{
+    color: white;
+    font-size: 3vh;
+    margin-top: 5%;
+}
+.partners{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.partners img{
+    width: 10%;
+    display: inline;
+    border: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 100;
+    object-fit: scale-down;
+}
+.lastRect{
+    width:800px;
+    height:100px;
+    background-color:#171717;
+    position:relative;
+    top: 200px;
+    left: 325px;
+}
+.rectangleDGrey {
+    width: 90%;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color:#2A2A2A;
+    position:relative;
+    top: 10;
+    left: 20;
+    overflow: hidden;
+    margin: 30px;
+
+}
+.rectangleLGrey {
+    width: 90%;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color:#dbd8e3;
+    position:relative;
+    top:10;
+    left: 20;
+    margin: 30px;
+    overflow: hidden;
+}
+.title{
+    font-size: 200%;
+}
+
+.topings{
+    font-size: x-large;
+    font-family:sans-serif;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+}
+.topings p{
+    margin: 20;
+}
+.card {
+    text-align: center;
+    background-color: #3D0000;
+    height: 90%;
+    width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+}
+.inactive_card{
+    background-color: #191919;
+    text-align: center;
+    height: 90%;
+    width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+}
+.card p{
+    color: rgb(215, 208, 208);
+    font-size: 2vh;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.inactive_card p{
+    color: rgb(215, 208, 208);
+    font-size: 2vh;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card img{
+    clip-path: circle();
+}
+.inactive_card img{
+    clip-path: circle();
+}
+.cards{
+    width: 100%;
+    justify-content: space-evenly;
+    table-layout: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add_new_course{
+
+    background-color:darkslategrey;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.search_button{
+    margin-top: 50px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.create_new{
+    position: fixed;
+    bottom: 1%;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: #ccc;;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.create_new a{
+    text-decoration: none;
+    color: #000000;
+}

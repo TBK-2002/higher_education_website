@@ -9,6 +9,10 @@
             margin: 0%;
             background-color: #0A0A0A;
         }
+        .delete{
+            background-color: rgb(88, 10, 10);
+            color: white;
+        }
         /*.centered{*/
         /*    font-size: x-large;*/
         /*    font-family:sans-serif;*/
@@ -75,24 +79,9 @@
             <div class="centered">
                 <div class="title">
                     <form>
-                        <label for="fname">First name:</label>
-                        <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br><br>
-
-                        <label for="lname">Last name:</label>
-                        <input type="text" id="lname" name="lname" placeholder="Enter your last name"><br><br>
-
                         <label for="universty">Universty:</label>
                         <input type="text" id="universty" name="universty" placeholder="Universty"><br><br>
 
-                        <label for="stdID">STD ID:</label>
-                        <input type="number" id="stdID" name="stdID" placeholder="ID"><br><br>
-
-                        <label for="gender">Gender:</label>
-                        <select>
-                            <option value="0">Select Gender:</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select><br><br>
 
                         <label for="department">Department:</label>
                         <select>
@@ -138,11 +127,8 @@
                             <option value="5">Statistics</option>
                         </select> <br><br>
 
-                        <label for="birthday">Birthdate:</label>
-                        <input type="date" id="birthday" name="birthday" ><br><br>
-
-                        <input type="submit" value="Submit">
-
+                        <button>Submit</button>
+                        <button class="delete">Delete Student</button>
 
                     </form>
                 </div>
