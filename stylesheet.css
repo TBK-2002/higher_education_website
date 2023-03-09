@@ -90,7 +90,7 @@ body{
 .nav_bar li:hover{
     background-color: #333333;
 }
-h1 {
+h1{
     display: block;
     color: white;
     margin-left: 2%;
@@ -153,7 +153,7 @@ h2{
     margin-left: auto;
     overflow: hidden;
 }
-.title{
+.title1{
     font-size: 200%;
 }
 
@@ -257,4 +257,105 @@ h2{
 .create_new a{
     text-decoration: none;
     color: #000000;
+}
+
+.title{
+    color: white;
+    font-family: inherit;
+    position:relative;
+    top: 70px;
+    left: 0px;
+    font-size: 26.5px;
+}
+label{
+    width: 100px;
+    display: inline-block;
+    font-size: Large;
+}
+.delete{
+    background-color: rgb(88, 10, 10);
+    color: white;
+}
+.dep_container{
+    border-radius: 15px;
+    width: 90%;
+    height: fit-content;
+    padding: 0%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0%;
+    position: relative;
+    text-align: center;
+    border-style: solid;
+    border-color: #ffffff;
+    overflow: hidden;
+}
+.dep_header{
+    width: 100%;
+    height: 50%;
+    padding: 0%;
+    margin: 0%;
+    border: 0%;
+    top: 0px;
+    background-color: #ffffff;
+    position: relative;
+    text-align: center;
+}
+.dep_header h1{
+    margin: 0;
+    padding: 10px;
+}
+.dep_content a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+.dep_content li{
+    list-style-type: initial;
+    color: #ffffff;
+    font-size: 20px;
+    display: inline-block;
+}
+.dep_header h1{
+    color: #000000;
+}
+.create_new{
+    position: fixed;
+    bottom: 1%;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: #ccc;;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1 {
+    display: block;
+    color: white;
+    margin-left: 20px;
+    padding-top: 50px;
+    margin-bottom: 25;
+    font-size: 5vh;
+    font-weight: bold;
+    text-align: center;
+}
+.title2{
+    color: white;
+    font-family: inherit;
+    position:relative;
+    top: 70px;
+    left: 0px;
+    font-size: 26.5px;
+}
+label1{
+    width: 100px;
+    display: inline-block;
+    font-size: Large;
 }

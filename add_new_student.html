@@ -3,98 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Student</title>
-    <style>
-        body{
-            padding: 0%;
-            margin: 0%;
-            background-color: #0A0A0A;
-        }
-        /*.centered{*/
-        /*    font-size: x-large;*/
-        /*    font-family:sans-serif;*/
-        /*    text-align: center;*/
-        /*    box-sizing: border-box;*/
-        /*    position: relative;*/
-        /*}*/
-        .nav_bar{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-image: linear-gradient(to bottom, #000000 , #333333 );
-            height: 45px;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333333;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
+    <link rel="stylesheet" href="stylesheet.css">
+<!--    <style>-->
+<!--        body{-->
+<!--            padding: 0%;-->
+<!--            margin: 0%;-->
+<!--            background-color: #0A0A0A;-->
+<!--        }-->
+<!--        /*.centered{*/-->
+<!--        /*    font-size: x-large;*/-->
+<!--        /*    font-family:sans-serif;*/-->
+<!--        /*    text-align: center;*/-->
+<!--        /*    box-sizing: border-box;*/-->
+<!--        /*    position: relative;*/-->
+<!--        /*}*/-->
+<!--        .nav_bar{-->
+<!--            position: fixed;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--            width: 100%;-->
+<!--            background-image: linear-gradient(to bottom, #000000 , #333333 );-->
+<!--            height: 45px;-->
+<!--            list-style-type: none;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            overflow: hidden;-->
+<!--            background-color: #333333;-->
+<!--            border-bottom-left-radius: 15px;-->
+<!--            border-bottom-right-radius: 15px;-->
 
-        }
-        .nav_bar li{
-            float: left;
-            display: inline;
-            height: 100%;
-            padding: 10px;
-            padding-right: 20px;
-            padding-left: 20px;
-            border-right: 1px solid #ccc;
-            border-bottom: none;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        .nav_bar li a{
-            text-decoration: none;
-            height: max-content;
-            text-align: center;
-            color: rgb(209, 203, 203);
-        }
-        .nav_bar li:hover{
-            background-color: #333333;
-        }
-        .title{
-            color: white;
-            font-family: inherit;
-            position:relative;
-            top: 70px;
-            left: 0px;
-            font-size: 26.5px;
-        }
-        label{
-            width: 100px;
-            display: inline-block;
-            font-size: Large;
-        }
+<!--        }-->
+<!--        .nav_bar li{-->
+<!--            float: left;-->
+<!--            display: inline;-->
+<!--            height: 100%;-->
+<!--            padding: 10px;-->
+<!--            padding-right: 20px;-->
+<!--            padding-left: 20px;-->
+<!--            border-right: 1px solid #ccc;-->
+<!--            border-bottom: none;-->
+<!--            margin-top: auto;-->
+<!--            margin-bottom: auto;-->
+<!--        }-->
+<!--        .nav_bar li a{-->
+<!--            text-decoration: none;-->
+<!--            height: max-content;-->
+<!--            text-align: center;-->
+<!--            color: rgb(209, 203, 203);-->
+<!--        }-->
+<!--        .nav_bar li:hover{-->
+<!--            background-color: #333333;-->
+<!--        }-->
+<!--        .title2{-->
+<!--            color: white;-->
+<!--            font-family: inherit;-->
+<!--            position:relative;-->
+<!--            top: 70px;-->
+<!--            left: 0px;-->
+<!--            font-size: 26.5px;-->
+<!--        }-->
+<!--        label1{-->
+<!--            width: 100px;-->
+<!--            display: inline-block;-->
+<!--            font-size: Large;-->
+<!--        }-->
 
-    </style>
+<!--    </style>-->
 </head>
 <body>
     <ul>
         <li>
             <div class="centered">
-                <div class="title">
+                <div class="title2">
                     <form>
-                        <label for="fname">First name:</label>
+                        <label1 for="fname">First name:</label1>
                         <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br><br>
 
-                        <label for="lname">Last name:</label>
+                        <label1 for="lname">Last name:</label1>
                         <input type="text" id="lname" name="lname" placeholder="Enter your last name"><br><br>
 
-                        <label for="universty">Universty:</label>
+                        <label1 for="universty">Universty:</label1>
                         <input type="text" id="universty" name="universty" placeholder="Universty"><br><br>
 
-                        <label for="stdID">STD ID:</label>
+                        <label1 for="stdID">STD ID:</label1>
                         <input type="number" id="stdID" name="stdID" placeholder="ID"><br><br>
 
-                        <label for="gender">Gender:</label>
+                        <label1 for="gender">Gender:</label1>
                         <select>
                             <option value="0">Select Gender:</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
                         </select><br><br>
 
-                        <label for="department">Department:</label>
+                        <label1 for="department">Department:</label1>
                         <select>
                             <option value="0">Select Department:</option>
                             <option value="1">IT</option>
@@ -104,7 +105,7 @@
                             <option value="5">DS</option>
                         </select><br><br>
 
-                        <label for="status">Status:</label>
+                        <label1 for="status">Status:</label1>
                         <select>
                             <option value="0">Select status:</option>
                             <option value="1">Active</option>
@@ -112,7 +113,7 @@
                           </select>
                         <br><br>
 
-                        <label for="courses">Courses:</label>
+                        <label1 for="courses">Courses:</label1>
                         <select>
                             <option value="0">Course 1:</option>
                             <option value="1">Data Base</option>
@@ -138,7 +139,7 @@
                             <option value="5">Statistics</option>
                         </select> <br><br>
 
-                        <label for="birthday">Birthdate:</label>
+                        <label1 for="birthday">Birthdate:</label1>
                         <input type="date" id="birthday" name="birthday" ><br><br>
 
                         <input type="submit" value="Submit">
