@@ -190,9 +190,10 @@ h2{
 .card p{
     color: rgb(215, 208, 208);
     font-size: 2vh;
-    padding: 0;
+    padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    display: block;
 }
 .inactive_card p{
     color: rgb(215, 208, 208);
@@ -319,7 +320,17 @@ label{
     font-size: 20px;
     display: inline-block;
 }
-.dep_header h1{
+.dep_header h2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 5vh;
+    font-weight: bold;
+    text-align: center;
+    padding:1% ;
+    height: 100%;
     color: #000000;
 }
 .create_new{
@@ -336,7 +347,7 @@ label{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-h1 {
+.departmentBody h1 {
     display: block;
     color: white;
     margin-left: 20px;
