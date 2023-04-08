@@ -370,3 +370,59 @@ label1{
     display: inline-block;
     font-size: Large;
 }
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.home_page_table{
+    width: 100%;
+    height: 100%;  
+}
+
+.home_page_table tr{
+    height: 50%;
+    width: 100%;
+    background-color: black;
+}
+
+.home_page_table div{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    position: relative;
+}
+
+.home_page_table h1{
+    text-align: left;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    text-shadow: 2px 2px #000000;
+}
+
+
+.home_page_table div img{
+    position: fixed;
+    left: 0;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+
+.home_page_table div:hover {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.home_page_table div:hover h1 {
+  color: red;
+  
+}
+
