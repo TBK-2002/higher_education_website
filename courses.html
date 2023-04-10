@@ -26,25 +26,24 @@
 <br>
   <table class="cards"> 
     <script>
-      let courses = [];
+      
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          courses = JSON.parse(this.responseText);
+          localstorage.courses = JSON.parse(this.responseText);
         }
         let content = "";
         content += "<tr>";
-        for(let i = 0; i < courses.length; i++){
+        for(let i = 0; i < localstorage.courses.length; i++){
           content+="<td>";
           content+="<div class = 'card'>";
-          content+="<h2>" + courses[i].name + "</h2>";
-          content+="<p class='title1'>" + courses[i].id + "</p>";
+          content+="<h2>" + localstorage.courses[i].name + "</h2>";
+          content+="<p class='title1'>" + localstorage.courses[i].id + "</p>";
           content+="<p>Barvard University</p>";
-          content+="<p>Number of Students: " + courses[i].noStudents + "</p>";
-          content+="<p>Department: " + courses[i].department + "</p>";
+          content+="<p>Number of Students: " + localstorage.courses[i].noStudents + "</p>";
+          content+="<p>Department: " + localstorage.courses[i].department + "</p>";
           content+="<div style='margin: 24px 0;'>";
           content+="</div>";
-          content+="<p><button>Edit</button></p>";
           content+="</div>";
           content+="</td>";
           if((i+1)%3 == 0){

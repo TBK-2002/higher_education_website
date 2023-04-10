@@ -4,41 +4,17 @@
     <meta charset="UTF-8">
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script>
-       function validateForm() {
-            var department = document.querySelector('select[name="department"]').value;
-            var status = document.querySelector('select[name="status"]').value;
-            var courses = document.querySelector('select[name="courses"]').value;
-                if (department === "0") {
-                    window.alert("Please select a department");
-                    return false;
-                }
-
-
-                if (status === "0") {
-                    window.alert("Please select a status");
-                    return false;
-                }
-
-
-                if (course1 === "0" && course2 === "0" && course3 === "0") {
-                    window.alert("Please select at least one course");
-                    return false;
-                }
-                window.alert("Student added successfully");
-                return true;
-}
-    </script>
+    <script src = "scripts.js">   </script>
 </head>
 <body>
     <ul>
         <li>
             <div class="centered">
                 <div class="title">
-                    <form onsubmit="return validateForm()" method="post">
+                    <form  method="post">
                         <label for="universty">Universty:</label>
-                        <label for="department">Department:</label>
-                        <select>
+                        <label  for="department">Department:</label>
+                        <select id = "dept">
                             <option value="0">Select Department:</option>
                             <option value="1">IT</option>
                             <option value="2">IS</option>
@@ -47,8 +23,8 @@
                             <option value="5">DS</option>
                         </select><br><br>
 
-                        <label for="status">Status:</label>
-                        <select>
+                        <label id = "status" for="status">Status:</label>
+                        <select  id = "status">
                             <option value="0">Select status:</option>
                             <option value="1">Active</option>
                             <option value="2">Inactive</option>
@@ -56,7 +32,7 @@
                         <br><br>
 
                         <label for="courses">Courses:</label>
-                        <select>
+                        <select id = "course1">
                             <option value="0">Course 1:</option>
                             <option value="1">Data Base</option>
                             <option value="2">Software Engineering</option>
@@ -64,7 +40,7 @@
                             <option value="4">Programming</option>
                             <option value="5">Statistics</option>
                         </select>
-                        <select>
+                        <select id = "course2">
                             <option value="0">Course 2:</option>
                             <option value="1">Data Base</option>
                             <option value="2">Software Engineering</option>
@@ -72,7 +48,7 @@
                             <option value="4">Programming</option>
                             <option value="5">Statistics</option>
                         </select>
-                        <select>
+                        <select id = "course3">
                             <option value="0">Course 3:</option>
                             <option value="1">Data Base</option>
                             <option value="2">Software Engineering</option>
@@ -80,7 +56,7 @@
                             <option value="4">Programming</option>
                             <option value="5">Statistics</option>
                         </select> <br><br>
-                        <input type="submit" value="Save">
+                        <button onclick=" return validateForm()" >Save </button>
                         <button class="delete">Delete Student</button>
 
                     </form>
