@@ -4,17 +4,39 @@
     <meta charset="UTF-8">
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script>
+       function validateForm() {
+            var department = document.querySelector('select[name="department"]').value;
+            var status = document.querySelector('select[name="status"]').value;
+            var courses = document.querySelector('select[name="courses"]').value;
+                if (department === "0") {
+                    window.alert("Please select a department");
+                    return false;
+                }
+
+
+                if (status === "0") {
+                    window.alert("Please select a status");
+                    return false;
+                }
+
+
+                if (course1 === "0" && course2 === "0" && course3 === "0") {
+                    window.alert("Please select at least one course");
+                    return false;
+                }
+                window.alert("Student added successfully");
+                return true;
+}
+    </script>
 </head>
 <body>
     <ul>
         <li>
             <div class="centered">
                 <div class="title">
-                    <form>
+                    <form onsubmit="return validateForm()" method="post">
                         <label for="universty">Universty:</label>
-                        <input type="text" id="universty" name="universty" placeholder="Universty"><br><br>
-
-
                         <label for="department">Department:</label>
                         <select>
                             <option value="0">Select Department:</option>
@@ -58,8 +80,7 @@
                             <option value="4">Programming</option>
                             <option value="5">Statistics</option>
                         </select> <br><br>
-
-                        <button>Submit</button>
+                        <input type="submit" value="Save">
                         <button class="delete">Delete Student</button>
 
                     </form>

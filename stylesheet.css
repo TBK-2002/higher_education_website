@@ -421,8 +421,13 @@ html, body {
   -webkit-filter: blur(8px);
 }
 
-.home_page_table div:hover h1 {
-  color: red;
+    .home_page_table div:hover h1{
+       
+    }
+
   
-}
+
+
+  
+
 
