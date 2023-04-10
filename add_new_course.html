@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="course.js"></script>
+    <script src="courses_provider.js"> </script>
+    <script>
+        function createNewCourse(){
+            // let courses = JSON.parse(localStorage.getItem("courses"));
+            // let name = document.getElementById("cName").value;
+            // let id = document.getElementById("ID").value;
+            // let department = document.getElementById("department").value;
+            // let noHrs = document.getElementById("noHrs").value;
+            // let lecDay = document.getElementById("lecDay").value;
+            // let hallNO = document.getElementById("hallNO").value;
+            // let newCourse = new Course(name, id, department, noHrs, lecDay, hallNO);
+            // courses.push(newCourse);
+            // localStorage.setItem("courses", JSON.stringify(newCourse));
+        }
+    </script>
 </head>
 <body>
 <ul>
@@ -31,7 +47,7 @@
                     <input type="number" id="hallNO" name="hallNO" placeholder="Hall Number"><br><br>
 
 
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="createNewCourse()">
 
 
                 </form>
