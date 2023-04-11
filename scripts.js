@@ -13,18 +13,18 @@ class Student {
 
 
   function validateForm(){
-
   
     const dept = document.getElementById('dept');
     const status = document.getElementById('status');
-    const course1 = doccument.getElementById('course1');
+    const course1 = document.getElementById('course1');
     const course2 = document.getElementById('course2');
     const course3 = document.getElementById('course3');
 
     if(dept == 0 || status == 0 || course1 == 0 || course2 == 0 || course3 == 0){
       window.alert('Please fill all the fields');
-      return false;
+    }
+    else{
+      window.alert("data updated succesfully");
     }
   
-    return true;
   }
