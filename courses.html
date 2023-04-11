@@ -56,7 +56,7 @@
         content += "</tr>";
         document.getElementsByClassName("cards")[0].innerHTML = content;
       };
-      xhttp.open("GET", "http://127.0.0.1:5500/courses.json", true);
+      xhttp.open("GET", "/courses.json", true);
       xhttp.send();
     }
     else{

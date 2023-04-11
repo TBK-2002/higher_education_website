@@ -14,10 +14,10 @@ class Student {
 
 
   function validateForm(){
-
   
     const dept = document.getElementById('dept');
     const status = document.getElementById('status');
+    const course1 = document.getElementById('course1');
     const course1 = document.getElementById('course1');
     const course2 = document.getElementById('course2');
     const course3 = document.getElementById('course3');
