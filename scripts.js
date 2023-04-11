@@ -18,8 +18,7 @@ class Student {
     const dept = document.getElementById('dept');
     const status = document.getElementById('status');
     const course1 = document.getElementById('course1');
-    const course1 = document.getElementById('course1');
-    const course2 = document.getElementById('course2');
+    const course2 = document.getElementById('course1');
     const course3 = document.getElementById('course3');
 
     if(dept.value == 0 || status.value == 0 || course1.value == 0 || course2.value == 0 || course3.value == 0){
