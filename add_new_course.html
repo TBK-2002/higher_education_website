@@ -5,19 +5,25 @@
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="course.js"></script>
-    <script src="courses_provider.js"> </script>
     <script>
         function createNewCourse(){
-            // let courses = JSON.parse(localStorage.getItem("courses"));
-            // let name = document.getElementById("cName").value;
-            // let id = document.getElementById("ID").value;
-            // let department = document.getElementById("department").value;
-            // let noHrs = document.getElementById("noHrs").value;
-            // let lecDay = document.getElementById("lecDay").value;
-            // let hallNO = document.getElementById("hallNO").value;
-            // let newCourse = new Course(name, id, department, noHrs, lecDay, hallNO);
-            // courses.push(newCourse);
-            // localStorage.setItem("courses", JSON.stringify(newCourse));
+        if(document.getElementById("cName").value == 0 || document.getElementById("ID").value == 0 || document.getElementById("department").value == 0 || document.getElementById("noHrs").value == 0 || document.getElementById("lecDay").value == 0 || document.getElementById("hallNO").value == 0){
+            alert("Please fill all the fields");
+        }
+        else{
+            tmp = JSON.parse(localStorage.courses);
+            tmp.push(new Course(
+                name = document.getElementById("cName").value,
+                id = document.getElementById("ID").value,
+                department = document.getElementById("department").value,
+                hours = document.getElementById("noHrs").value,
+                day = document.getElementById("lecDay").value,
+                hall = document.getElementById("hallNO").value
+            ));
+            localStorage.courses = JSON.stringify(tmp);
+            alert("Course added successfully");
+            window.location.href = "courses.html";
+        }
         }
     </script>
 </head>
@@ -26,7 +32,7 @@
     <li>
         <div class="centered">
             <div class="title">
-                <form>
+                <!-- <form> -->
                     <label for="cName">Course name:</label>
                     <input type="text" id="cName" name="cName" placeholder="Enter course name"><br><br>
 
@@ -47,10 +53,11 @@
                     <input type="number" id="hallNO" name="hallNO" placeholder="Hall Number"><br><br>
 
 
-                    <input type="submit" value="Submit" onclick="createNewCourse()">
+                    <!-- <input type="submit" value="Submit" onclick="createNewCourse()"> -->
+                    <button onclick="createNewCourse()">Submit</button>
 
 
-                </form>
+                <!-- </form> -->
             </div>
 
         </div>
