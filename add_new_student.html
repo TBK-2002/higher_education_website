@@ -67,19 +67,19 @@ function createNewStudent(){
 
     else{
         loadedStudents[document.getElementById("stdID").value] = new Student (
-           id =  document.getElementById("stdID").value,
-           fname =  document.getElementById("fname").value,
-           lname = document.getElementById("lname").value,
-           university = document.getElementById("universty").value,
-           gender =  document.getElementById("gender").value,
+            id =  document.getElementById("stdID").value,
+            fname =  document.getElementById("fname").value,
+            lname = document.getElementById("lname").value,
+            university = document.getElementById("universty").value,
+            gender =  document.getElementById("gender").value,
             department = document.getElementById("dep").value,
-           stat =  document.getElementById("status").value,
-           course1 = document.getElementById("course1").value,
+            stat =  document.getElementById("status").value,
+            course1 = document.getElementById("course1").value,
             course2 = document.getElementById("course2").value,
-           course3 =  document.getElementById("course3").value,
-           birthdate =  document.getElementById("birthday").value  );
-           
-           localStorage.students = JSON.stringify(loadedStudents);
+            course3 =  document.getElementById("course3").value,
+            birthdate =  document.getElementById("birthday").value);
+
+            localStorage.students = JSON.stringify(loadedStudents);
             alert("Student added successfully");
             window.location.href = "students.html";
       
