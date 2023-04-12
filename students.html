@@ -31,19 +31,6 @@
 <ul>
     <table id = "students" class="cards">
    <script>
-    fetch('students.json').then(respone=>respone.json()).then(data=>{localStorage.setItem('students',JSON.stringify(data))})
-    .catch(err=>console.log(err));
-    function loadStudents(){
-        const dept = document.getElementById('filter_dept').value;
-        let students = localStorage.getItem('students');
-        if(students == null){
-            students = [];
-        }
-        else{
-            students = JSON.parse(students);
-        }
-        return students;
-    }
     let loadedStudents = loadStudents();
     let content = "";
     content += "<tr>";
@@ -51,11 +38,11 @@
     for(var i in loadedStudents){
         content+="<td>";
         content+="<div class = 'card'>";
-        content+="<h2>" + loadedStudents[i].name + "</h2>";
-        content+="<p class='title1'>" + loadedStudents[i].id + "</p>";
-        content+="<p>Barvard University</p>";
+        content+="<h2>" + loadedStudents[i].fname + " "+loadedStudents[i].lname +"</h2>";
+        content+="<p>University: " + loadedStudents[i].university + "</p>";
+        content+="<p> id: "+ loadedStudents[i].id +"</p>";
         content+="<p>Department: " + loadedStudents[i].department + "</p>";
-        content+="<p>Gpa: " + loadedStudents[i].gpa + "</p>";
+        content+="<p>gender: "+loadedStudents[i].gender +"</p>";
         content+="<div style='margin: 24px 0;'>";
         content+="</div>";
         content+="</div>";

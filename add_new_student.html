@@ -4,82 +4,97 @@
     <meta charset="UTF-8">
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src = "students_script.js" ></script>
+    <script src = "students.js" > </script>
     <script>
-        function validFName(){
-            let fName = document.getElementById("fname").value;
-            let regex = /^[A-Z][a-z]*$/;
-            if(regex.test(fName)){
-                return true;
-            }
-            else{
-                alert("Enter first name that contains: " +
-                    "First letter upper and other lower" +
-                    "No symbols" +
-                    "No numbers");
-                return false;
-            }
-        }
-        function validLName(){
-            let lName = document.getElementById("lname").value;
-            let regex = /^[A-Z][a-z]*$/;
-            if(regex.test(lName)){
-                return true;
-            }
-            else{
-                alert("Enter last name that contains: " +
-                    "First letter upper and other lower" +
-                    "No symbols" +
-                    "No numbers");
-                return false;
-            }
-        }
-        function validUni(){
-            let uName = document.getElementById("universty").value;
-            let regex = /^^[a-zA-Z]{2,4}$/;
-            if(regex.test(uName)){
-                return true;
-            }
-            else{
-                alert("Enter the Universty abbreviation name: " +
-                    "No symbols" +
-                    "No numbers");
-                return false;
-            }
-        }
-        function validID(){
-            let id = (document.getElementById("ID").value);
-            let regex=/^\d{6}$/;
-            if(regex.test(id)){
-                if(loadedCourses[id] != null){
-                    alert("ID already exists");
-                    return false;
-                }
-                else{
-                    return true;
-                }
-            }
-            else{
-                alert("Please enter a valid ID");
-                return false;
-            }
-        }
-        function createNewStudent(){
-            if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("ID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("department").value == 0 || document.getElementById("status").value == 0 |||| document.getElementById("courses").value == 0 || document.getElementById("birthdate").value == 0){
-                alert("Please fill all the fields");
-                return;
-            }
-            else if(!validFName() || !validLName() || !validUni() || !validID())
-                return;
 
+    let loadedStudents = loadStudents();
+    function validFName(){
+    let fName = document.getElementById("fname").value;
+    let regex = /^[A-Z][a-z]*$/;
+    if(!regex.test(fName)){
+        window.alert("Enter first name that contains: " +
+        "First letter upper and other lower" +
+        "No symbols" +
+        "No numbers"); 
+    }
+   
+}
+function validLName(){
+    let lName = document.getElementById("lname").value;
+    let regex = /^[A-Z][a-z]*$/;
+    if(!regex.test(lName)){
+       window.alert("Enter last name that contains: " +
+        "First letter upper and other lower" +
+        "No symbols" +
+        "No numbers");
+       }
+
+}
+function validUni(){
+    let uName = document.getElementById("universty").value;
+    let regex = /^[a-zA-Z]{2,4}$/;
+    if(!regex.test(uName)){
+        alert("Enter the Universty abbreviation name: " +
+        "No symbols" +
+        "No numbers");
+    }
+    
+}
+function validID(){
+    let id = (document.getElementById("stdID").value);
+    let regex=/^\d{8}$/;
+    if(regex.test(id)){
+        if(loadedStudents[id] != null){
+            alert("ID already exists");
+            return false;
         }
-    </script>
+        else{
+            return true;
+        }
+    }
+    else{
+        alert("Please enter a valid ID");
+        return false;
+    }
+}
+
+
+function createNewStudent(){
+    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
+        alert("Please fill all the fields");
+    }
+
+    else{
+        loadedStudents[document.getElementById("stdID").value] = new Student (
+           id =  document.getElementById("stdID").value,
+           fname =  document.getElementById("fname").value,
+           lname = document.getElementById("lname").value,
+          university = document.getElementById("universty").value,
+           gender =  document.getElementById("gender").value,
+            department = document.getElementById("dep").value,
+           status =  document.getElementById("status").value,
+           course1 = document.getElementById("course1").value,
+            cours2 = document.getElementById("course2").value,
+           course3 =  document.getElementById("course3").value,
+           birthdate =  document.getElementById("birthday").value  );
+           
+           localStorage.students = JSON.stringify(loadedStudents);
+            alert("Student added successfully");
+            window.location.href = "students.html";
+      
+    }
+
+}
+    </script> 
+   
 </head>
 <body>
     <ul>
         <li>
             <div class="centered">
                 <div class="title2">
-                    <form>
+                    
                         <label1 for="fname">First name:</label1>
                         <input type="text" id="fname" name="fname" placeholder="Enter your first name"><br><br>
 
@@ -93,14 +108,14 @@
                         <input type="number" id="stdID" name="stdID" placeholder="ID"><br><br>
 
                         <label1 for="gender">Gender:</label1>
-                        <select>
+                        <select id = "gender">
                             <option value="0">Select Gender:</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
                         </select><br><br>
 
                         <label1 for="department">Department:</label1>
-                        <select>
+                        <select id = "dep">
                             <option value="0">Select Department:</option>
                             <option value="1">IT</option>
                             <option value="2">IS</option>
@@ -110,7 +125,7 @@
                         </select><br><br>
 
                         <label1 for="status">Status:</label1>
-                        <select>
+                        <select id = "status">
                             <option value="0">Select status:</option>
                             <option value="1">Active</option>
                             <option value="2">Inactive</option>
@@ -118,7 +133,7 @@
                         <br><br>
 
                         <label1 for="courses">Courses:</label1>
-                        <select>
+                        <select id = "course1">
                             <option value="0">Course 1:</option>
                             <option value="1">Data Base</option>
                             <option value="2">Software Engineering</option>
@@ -126,7 +141,7 @@
                             <option value="4">Programming</option>
                             <option value="5">Statistics</option>
                         </select>
-                        <select>
+                        <select id = "course2">
                             <option value="0">Course 2:</option>
                             <option value="1">Data Base</option>
                             <option value="2">Software Engineering</option>
@@ -134,7 +149,7 @@
                             <option value="4">Programming</option>
                             <option value="5">Statistics</option>
                         </select>
-                        <select>
+                        <select id = "course3">
                             <option value="0">Course 3:</option>
                             <option value="1">Data Base</option>
                             <option value="2">Software Engineering</option>
@@ -146,10 +161,11 @@
                         <label1 for="birthday">Birthdate:</label1>
                         <input type="date" id="birthday" name="birthday" ><br><br>
 
-                        <input type="submit" value="Submit">
+                        <button onclick="createNewStudent()">Add Student</button>
 
 
-                    </form>
+
+                    
                 </div>
 
             </div>
