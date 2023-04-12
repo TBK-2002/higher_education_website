@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Students</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="students_script.js"></script>
 </head>
 <body>
         <div class = "search_button">
@@ -12,7 +13,7 @@
                 <a href="students.html">Search</a>
             </button>
             Filter by
-            <select>
+            <select id = 'filter_dept'>
                 <option value="0">Department</option>
                 <option value="0">Select Department:</option>
                 <option value="1">IT</option>
@@ -28,119 +29,49 @@
         </div>
     <div class = "hl"></div>
 <ul>
-    <table class="cards">
-        <tr>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-            <th>
-                <div class = "card">
-                    <img src="https://www.w3schools.com/w3images/team2.jpg" alt="john" style="width:45%">
-                    <h1>John Doe</h1>
-                    <p class="title">Student</p>
-                    <p>Barvard University</p>
-                    <p>GPA:3.74 </p>
-                    <p>Department: Computer Science</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="edit_student.html">Edit</a></button></p>
-                </div>
-            </th>
-        </tr>
+    <table id = "students" class="cards">
+   <script>
+    fetch('students.json').then(respone=>respone.json()).then(data=>{localStorage.setItem('students',JSON.stringify(data))})
+    .catch(err=>console.log(err));
+    function loadStudents(){
+        const dept = document.getElementById('filter_dept').value;
+        let students = localStorage.getItem('students');
+        if(students == null){
+            students = [];
+        }
+        else{
+            students = JSON.parse(students);
+        }
+        return students;
+    }
+    let loadedStudents = loadStudents();
+    let content = "";
+    content += "<tr>";
+    let cnt = 0;
+    for(var i in loadedStudents){
+        content+="<td>";
+        content+="<div class = 'card'>";
+        content+="<h2>" + loadedStudents[i].name + "</h2>";
+        content+="<p class='title1'>" + loadedStudents[i].id + "</p>";
+        content+="<p>Barvard University</p>";
+        content+="<p>Department: " + loadedStudents[i].department + "</p>";
+        content+="<p>Gpa: " + loadedStudents[i].gpa + "</p>";
+        content+="<div style='margin: 24px 0;'>";
+        content+="</div>";
+        content+="</div>";
+        content+="</td>";
+        if((cnt+1)%2 == 0){
+            content += "</tr>";
+            content += "<tr>";
+        }
+        cnt++;
+    }
+    content += "</tr>";
+    document.getElementById("students").innerHTML = content;
+   </script>
+              
+              
+          
     </table>
 
 
