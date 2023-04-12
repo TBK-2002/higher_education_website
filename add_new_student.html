@@ -13,37 +13,43 @@
     let fName = document.getElementById("fname").value;
     let regex = /^[A-Z][a-z]*$/;
     if(!regex.test(fName)){
-        window.alert("Enter first name that contains: " +
-        "First letter upper and other lower" +
-        "No symbols" +
-        "No numbers"); 
+        window.alert("Enter first name that contains: " + '\n'+
+        "First letter upper and other lower" + '\n'+
+        "No symbols" + '\n'+
+        "No numbers");
+        return false;
     }
+    return true;
    
 }
 function validLName(){
     let lName = document.getElementById("lname").value;
     let regex = /^[A-Z][a-z]*$/;
     if(!regex.test(lName)){
-       window.alert("Enter last name that contains: " +
-        "First letter upper and other lower" +
-        "No symbols" +
+       window.alert("Enter last name that contains: "  + '\n'+
+        "First letter upper and other lower" +  '\n'+
+        "No symbols" + '\n'+
         "No numbers");
+       return false;
        }
+    return true;
 
 }
 function validUni(){
     let uName = document.getElementById("universty").value;
     let regex = /^[a-zA-Z]{2,4}$/;
     if(!regex.test(uName)){
-        alert("Enter the Universty abbreviation name: " +
-        "No symbols" +
+        alert("Enter the Universty abbreviation name: " + '\n'+
+        "No symbols" + '\n'+
         "No numbers");
+        return false;
     }
+    return true;
     
 }
 function validID(){
     let id = (document.getElementById("stdID").value);
-    let regex=/^\d{8}$/;
+    let regex=/^[0-9]{8}$/;
     if(regex.test(id)){
         if(loadedStudents[id] != null){
             alert("ID already exists");
@@ -64,8 +70,11 @@ function createNewStudent(){
     if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
         alert("Please fill all the fields");
     }
-
+    else if(!validID() || !validFName()|| !validLName()|| !validUni()){
+        return;
+    }
     else{
+        console.log("valid");
         loadedStudents[document.getElementById("stdID").value] = new Student (
             id =  document.getElementById("stdID").value,
             fname =  document.getElementById("fname").value,
