@@ -75,10 +75,10 @@ function createNewStudent(){
             department = document.getElementById("dep").value,
            status =  document.getElementById("status").value,
            course1 = document.getElementById("course1").value,
-            cours2 = document.getElementById("course2").value,
+            course2 = document.getElementById("course2").value,
            course3 =  document.getElementById("course3").value,
            birthdate =  document.getElementById("birthday").value  );
-           
+
            localStorage.students = JSON.stringify(loadedStudents);
             alert("Student added successfully");
             window.location.href = "students.html";
