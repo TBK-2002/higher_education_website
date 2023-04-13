@@ -392,7 +392,7 @@ html, body {
     background-color: black;
 }
 
-.home_page_table div{
+.home_page_cell div{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -401,34 +401,27 @@ html, body {
     padding: 0px;
     margin: 0px;
     border: 0px;
+    z-index: 0;
     position: relative;
 }
 
-.home_page_table h1{
+.home_page_cell h1{
     text-align: left;
     position: absolute;
-    left: 5%;
-    bottom: 5%;
+    z-index: 1;
     text-shadow: 2px 2px #000000;
 }
 
-
-.home_page_table div img{
-    position: fixed;
-    left: 0;
-    overflow: hidden;
-    width: auto;
-    height: auto;
-}
-
-.home_page_table div:hover {
+.home_page_cell div:hover {
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
 
-    .home_page_table div:hover h1{
-       
-    }
+.home_page_cell div:hover h1{
+  color: red;
+}
+
+
 
   
 
