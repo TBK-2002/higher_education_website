@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     <script src = "add_student_script.js" ></script>
     <script>
-    let loadedStudents = loadStudents();    
+    let loadedStudents = loadStudents();   
     function validFName(){
     let fName = document.getElementById("fname").value;
     let regex = /^[A-Z][a-z]*$/;
@@ -87,12 +87,15 @@ function createNewStudent(){
             course3 = document.getElementById("course3").value,
             birthdate = document.getElementById("birthday").value
         );
-       window.alert("Student added successfully");
-       localStorage.setItem("students", JSON.stringify(loadedStudents));
-       if(document.getElementById("status").value == "Active")
-       window.location.href = "students.html";
-       else
-         window.location.href = "inactive_students.html";
+        window.alert("Student added successfully");
+        localStorage.setItem("students", JSON.stringify(loadedStudents));
+       if(document.getElementById("status").value == "Active"){
+            window.location.href = "students.html";
+        }
+       else{
+            window.location.href = "inactive_students.html";
+       }
+    
        
       }
 

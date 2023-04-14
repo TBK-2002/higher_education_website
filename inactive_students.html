@@ -36,15 +36,15 @@
     content += "<tr>";
     let cnt = 0;
     for(var i in loadedStudents){
-        if(loadedStudents[i].status =="Active")
-            continue;  
+        if(loadedStudents[i].stat == "Active")
+            continue;
         content+="<td>";
         content+="<div class = 'inactive_card'>";
-        content+="<h2>" + loadedStudents[i].name + "</h2>";
-        content+="<p class='title1'>" + loadedStudents[i].id + "</p>";
-        content+="<p>Barvard University</p>";
+        content+="<h2>" + loadedStudents[i].fname + " "+loadedStudents[i].lname +"</h2>";
+        content+="<p>University: " + loadedStudents[i].university + "</p>";
+        content+="<p> ID: "+ loadedStudents[i].id +"</p>";
         content+="<p>Department: " + loadedStudents[i].department + "</p>";
-        content+="<p>Gpa: " + loadedStudents[i].gpa + "</p>";
+        content+="<p>gender: "+loadedStudents[i].gender +"</p>";
         content+="<div style='margin: 24px 0;'>";
         content+="</div>";
         content+="</div>";
@@ -54,6 +54,7 @@
             content += "<tr>";
         }
         cnt++;
+    
     }
     content += "</tr>";
     document.getElementById("inactive_students").innerHTML = content;
