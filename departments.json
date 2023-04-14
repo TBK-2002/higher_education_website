@@ -1,0 +1,22 @@
+{
+  "CS": {
+    "name": "Computer Science",
+    "courses": []
+  },
+  "AI": {
+    "name": "Artificial Intelligence",
+    "courses": []
+  },
+  "IT": {
+    "name": "Information Technology",
+    "courses": []
+  },
+  "IS": {
+    "name": "Information Systems",
+    "courses": []
+  },
+  "DS": {
+    "name": "Decision Support",
+    "courses": []
+  }
+}
