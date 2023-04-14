@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Students</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script src="students_script.js"></script>
+    <script src="add_student_script.js"></script>
 </head>
 <body>
         <div class = "search_button">
@@ -29,25 +29,15 @@
         </div>
     <div class = "hl"></div>
 <ul>
-    <table id = "students" class="cards">
+    <table id = "inactive_students" class="cards">
    <script>
-    fetch('students.json').then(respone=>respone.json()).then(data=>{localStorage.setItem('students',JSON.stringify(data))})
-    .catch(err=>console.log(err));
-    function loadStudents(){
-        let students = localStorage.getItem('students');
-        if(students == null){
-            students = [];
-        }
-        else{
-            students = JSON.parse(students);
-        }
-        return students;
-    }
     let loadedStudents = loadStudents();
     let content = "";
     content += "<tr>";
     let cnt = 0;
     for(var i in loadedStudents){
+        if(loadedStudents[i].status =="Active")
+            continue;  
         content+="<td>";
         content+="<div class = 'inactive_card'>";
         content+="<h2>" + loadedStudents[i].name + "</h2>";
@@ -66,7 +56,7 @@
         cnt++;
     }
     content += "</tr>";
-    document.getElementById("students").innerHTML = content;
+    document.getElementById("inactive_students").innerHTML = content;
    </script>
               
               

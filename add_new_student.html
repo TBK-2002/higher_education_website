@@ -73,10 +73,7 @@ function createNewStudent(){
     }
 
     else{
-        if(document.getElementById("gender").value == 1){
-            document
-        }
-        window.alert("Student added successfully");
+       window.alert("Student added successfully");
         loadedStudents[document.getElementById("stdID").value] = new Student (
             id = document.getElementById("stdID").value,
             fname = document.getElementById("fname").value,
@@ -92,7 +89,11 @@ function createNewStudent(){
         );
        window.alert("Student added successfully");
        localStorage.setItem("students", JSON.stringify(loadedStudents));
-        window.location.href = "students.html";
+       if(document.getElementById("status").value == "Active")
+       window.location.href = "students.html";
+       else
+         window.location.href = "inactive_students.html";
+       
       }
 
 }
@@ -120,52 +121,52 @@ function createNewStudent(){
                         <label1 for="gender">Gender:</label1>
                         <select id = "gender">
                             <option value="0">Select Gender:</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select><br><br>
 
                         <label1 for="department">Department:</label1>
                         <select id = "dep">
                             <option value="0">Select Department:</option>
-                            <option value="1">IT</option>
-                            <option value="2">IS</option>
-                            <option value="3">AI</option>
-                            <option value="4">CS</option>
-                            <option value="5">DS</option>
+                            <option value="IT">IT</option>
+                            <option value="IS">IS</option>
+                            <option value="AI">AI</option>
+                            <option value="CS">CS</option>
+                            <option value="DS">DS</option>
                         </select><br><br>
 
                         <label1 for="status">Status:</label1>
                         <select id = "status">
                             <option value="0">Select status:</option>
-                            <option value="1">Active</option>
-                            <option value="2">Inactive</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
                           </select>
                         <br><br>
 
                         <label1 for="courses">Courses:</label1>
                         <select id = "course1">
                             <option value="0">Course 1:</option>
-                            <option value="1">Data Base</option>
-                            <option value="2">Software Engineering</option>
-                            <option value="3">Math-1</option>
-                            <option value="4">Programming</option>
-                            <option value="5">Statistics</option>
+                            <option value="Data Base">Data Base</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                            <option value="Math-1">Math-1</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Statistics">Statistics</option>
                         </select>
                         <select id = "course2">
                             <option value="0">Course 2:</option>
-                            <option value="1">Data Base</option>
-                            <option value="2">Software Engineering</option>
-                            <option value="3">Math-1</option>
-                            <option value="4">Programming</option>
-                            <option value="5">Statistics</option>
+                            <option value="Data Base">Data Base</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                            <option value="Math-1">Math-1</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Statistics">Statistics</option>
                         </select>
                         <select id = "course3">
                             <option value="0">Course 3:</option>
-                            <option value="1">Data Base</option>
-                            <option value="2">Software Engineering</option>
-                            <option value="3">Math-1</option>
-                            <option value="4">Programming</option>
-                            <option value="5">Statistics</option>
+                            <option value="Data Base">Data Base</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                            <option value="Math-1">Math-1</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Statistics">Statistics</option>
                         </select> <br><br>
 
                         <label1 for="birthday">Birthdate:</label1>
