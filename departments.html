@@ -5,119 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barvard University</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="departments_script.js">
+
+    </script>
 </head>
 <body class="departmentBody">
     <h1>
         Barvard University Departments
     </h1>
-    <div class="dep_container">
-        <div class="dep_header">
-            <h2>Department name</h2>
-        </div>
-        <div class="dep_content">
-            <ul>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-            </ul>
-        </div>
+    <div class="deps">
+        <script>
+            let content ="";
+            let departments =loadDepartment();
+            for(var i in departments){
+                content+="<div class=\"dep_container\">";
+                content+="<div class=\"dep_header\">";
+                content+="<h2>";
+                content+=departments[i].name;
+                content+="</h2>";
+                content+="</div>";
+                content+="<div class=\"dep_content\"><ul>";
+                for(var j in departments[i].courses){
+                    content+="<li>";
+                    content+=departments[i].courses[j];
+                    content+="</li>";
+                }
+                content+="</ul></div>";
+                content+="</div>";
+            }
+            document.getElementsByClassName("deps")[0].innerHTML=content;
+        </script>
     </div>
-    <div class="dep_container">
-        <div class="dep_header">
-            <h2>Department name</h2>
-        </div>
-        <div class="dep_content">
-            <ul>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="dep_container">
-        <div class="dep_header">
-            <h2>Department name</h2>
-        </div>
-        <div class="dep_content">
-            <ul>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="dep_container">
-        <div class="dep_header">
-            <h2>Department name</h2>
-        </div>
-        <div class="dep_content">
-            <ul>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="dep_container">
-        <div class="dep_header">
-            <h2>Department name</h2>
-        </div>
-        <div class="dep_content">
-            <ul>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-                <li>
-                    <a href="dep_page.html">Department of Computer Science</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- <button class="create_new">
-        Create Department
-    </button> -->
 
     <ul class="nav_bar">
         <li>
