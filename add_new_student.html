@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script src = "students_script.js" ></script>
-    <script src = "students.js" > </script>
+    <script src = "add_student_script.js" ></script>
     <script>
-
-    let loadedStudents = loadStudents();
+    let loadedStudents = loadStudents();    
     function validFName(){
     let fName = document.getElementById("fname").value;
     let regex = /^[A-Z][a-z]*$/;
@@ -73,26 +71,29 @@ function createNewStudent(){
     else if(!validID() || !validFName()|| !validLName()|| !validUni()){
         return;
     }
+
     else{
-        console.log("valid");
+        if(document.getElementById("gender").value == 1){
+            document
+        }
+        window.alert("Student added successfully");
         loadedStudents[document.getElementById("stdID").value] = new Student (
-            id =  document.getElementById("stdID").value,
-            fname =  document.getElementById("fname").value,
+            id = document.getElementById("stdID").value,
+            fname = document.getElementById("fname").value,
             lname = document.getElementById("lname").value,
-            university = document.getElementById("universty").value,
-            gender =  document.getElementById("gender").value,
+            university =  document.getElementById("universty").value,
+            gender = document.getElementById("gender").value,
             department = document.getElementById("dep").value,
-            stat =  document.getElementById("status").value,
+            stat = document.getElementById("status").value,
             course1 = document.getElementById("course1").value,
             course2 = document.getElementById("course2").value,
-            course3 =  document.getElementById("course3").value,
-            birthdate =  document.getElementById("birthday").value);
-
-            localStorage.students = JSON.stringify(loadedStudents);
-            alert("Student added successfully");
-            window.location.href = "students.html";
-      
-    }
+            course3 = document.getElementById("course3").value,
+            birthdate = document.getElementById("birthday").value
+        );
+       window.alert("Student added successfully");
+       localStorage.setItem("students", JSON.stringify(loadedStudents));
+        window.location.href = "students.html";
+      }
 
 }
     </script> 
