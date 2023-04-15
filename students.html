@@ -28,46 +28,39 @@
         <button><a href="students.html">active</a></button> <button><a href="inactive_students.html">inactive</a></button>
         </div>
     <div class = "hl"></div>
-<ul>
-    <table id = "students" class="cards">
-   <script>
-    let loadedStudents = loadStudents();
-    let content = "";
-    content += "<tr>";
-    let cnt = 0;
-    for(var i in loadedStudents){
-        if(loadedStudents[i].stat == "Inactive")
-            continue;
-        content+="<td>";
-        content+="<div class = 'card'>";
-        content+="<h2>" + loadedStudents[i].fname + " "+loadedStudents[i].lname +"</h2>";
-        content+="<p>University: " + loadedStudents[i].university + "</p>";
-        content+="<p> ID: "+ loadedStudents[i].id +"</p>";
-        content+="<p>Department: " + loadedStudents[i].department + "</p>";
-        content+="<p>gender: "+loadedStudents[i].gender +"</p>";
-        content+="<div style='margin: 24px 0;'>";     
-        content+="</div>";
-        content+="</div>";
-        content+="</td>";
-        if((cnt+1)%2 == 0){
-            content += "</tr>";
-            content += "<tr>";
+
+    <table id="students">
+    <script>
+        let loadedStudents = loadStudents();
+        let content = "";
+        content += "<tr>";
+        let cnt = 0;
+        for(var i in loadedStudents){
+            if(loadedStudents[i].stat == "Inactive")
+                continue;
+            content+="<td>";
+            content+="<div class = 'card'>";
+            content+="<h2>" + loadedStudents[i].fname + " "+loadedStudents[i].lname +"</h2>";
+            content+="<p>University: " + loadedStudents[i].university + "</p>";
+            content+="<p> ID: "+ loadedStudents[i].id +"</p>";
+            content+="<p>Department: " + loadedStudents[i].department + "</p>";
+            content+="<p>gender: "+loadedStudents[i].gender +"</p>";
+            content+="<div style='margin: 24px 0;'>";   
+            content+="</div>";
+            content+="</div>";
+            content+="</td>";
+            if((cnt+1)%2 == 0){
+                content += "</tr>";
+                content += "<tr>";
+            }
+            cnt++;
+        
         }
-        cnt++;
-    
-    }
-    content += "</tr>";
-    document.getElementById("students").innerHTML = content;
-   </script>
-              
-              
-          
+        content += "</tr>";
+        document.getElementById("students").innerHTML = content;
+    </script>    
     </table>
 
-
-  
-
-</ul>
 <div class = "hl"></div>
 <button class = "create_new">
     <a href="add_new_student.html ">Add New Student</a>

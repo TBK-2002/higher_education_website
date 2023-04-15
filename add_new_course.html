@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="stylesheet.css">
     <script src="courses_script.js"></script>
     <script src="course.js"></script>
+    <script src="departments_script.js"></script>
     <script>
         let loadedCourses = loadCourses();
+        let loadedDepartments = loadDepartment();
         function validName(){
             let name = document.getElementById("cName").value;
             let regex = /^[a-zA-Z ]+$/;
@@ -65,8 +67,11 @@
                     department = document.getElementById("department").value,
                     hours = document.getElementById("noHrs").value,
                     day = document.getElementById("lecDay").value,
-                    hall = document.getElementById("hallNO").value
+                    hall = document.getElementById("hallNO").value,
+                    studentsCount = 0,
                 );
+                loadedDepartments[document.getElementById("department").value].courses.push(document.getElementById("ID").value);
+                localStorage.dep = JSON.stringify(loadedDepartments);
                 localStorage.courses = JSON.stringify(loadedCourses);
                 alert("Course added successfully");
                 window.location.href = "courses.html";

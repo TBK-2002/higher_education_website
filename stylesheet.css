@@ -186,7 +186,7 @@ input{
 button{
     border-radius: 10px;
     padding: 5px;
-    width: 10vh;
+    width: fit-content;
     margin: 5px;
 }
 select{
@@ -236,6 +236,18 @@ a, a:visited, a:hover, a:active {
     table-layout: auto;
     margin-left: auto;
     margin-right: auto;
+}
+
+#students{
+    width: 100%;
+    justify-content: space-evenly;
+    table-layout: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#students td{
+    width: 50%;
 }
 
 .cards div{
@@ -469,8 +481,6 @@ html, body {
 .home_page_cell div:hover h1{
   color: red;
 }
-
-  
 
 
   

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barvard University</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script src="departments_script.js">
-
-    </script>
+    <script src="departments_script.js"></script>
+    <script src="courses_script.js"></script>
+    
 </head>
 <body class="departmentBody">
     <h1>
@@ -16,7 +16,8 @@
     <div class="deps">
         <script>
             let content ="";
-            let departments =loadDepartment();
+            let departments = loadDepartment();
+            let courses = loadCourses();
             for(var i in departments){
                 content+="<div class=\"dep_container\">";
                 content+="<div class=\"dep_header\">";
@@ -27,7 +28,7 @@
                 content+="<div class=\"dep_content\"><ul>";
                 for(var j in departments[i].courses){
                     content+="<li>";
-                    content+=departments[i].courses[j];
+                    content+=courses[departments[i].courses[j]].name;
                     content+="</li>";
                 }
                 content+="</ul></div>";

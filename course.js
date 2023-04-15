@@ -6,5 +6,6 @@ class Course{
         this.hours = hours;
         this.day = day;
         this.hall = hall;
+        this.studentsCount = 0;
     }
 }
