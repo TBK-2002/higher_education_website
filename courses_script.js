@@ -36,3 +36,30 @@ function loadCourses(){
     }
     return loadedCourses;
 }
+
+function display_courses(){
+  let loadedCourses = loadCourses();
+  let content = "";
+  content += "<tr>";
+  let cnt = 0;
+  for(var i in loadedCourses){
+    content+="<td>";
+    content+="<div class = 'card'>";
+    content+="<h2>" + loadedCourses[i].name + "</h2>";
+    content+="<p class='title1'>" + loadedCourses[i].id + "</p>";
+    content+="<p>Barvard University</p>";
+    content+="<p>Number of Students: " + loadedCourses[i].studentsCount + "</p>";
+    content+="<p>Department: " + loadedCourses[i].department + "</p>";
+    content+="<div style='margin: 24px 0;'>";
+    content+="</div>";
+    content+="</div>";
+    content+="</td>";
+    if((cnt+1)%3 == 0){
+        content += "</tr>";
+        content += "<tr>";
+    }
+    cnt++;
+  }
+  content += "</tr>";
+  document.getElementsByClassName("cards")[0].innerHTML = content;
+}

@@ -8,19 +8,19 @@
 </head>
 <body>
         <div class = "search_button">
-            <input type="text" placeholder="Search..">
+            <input id = "inactive_search" type="text" placeholder="Search..">
             <button>
                 <a href="students.html">Search</a>
             </button>
             Filter by
-            <select>
+            <select id  = "inactive_filter">
                 <option value="0">Department</option>
                 <option value="0">Select Department:</option>
-                <option value="1">IT</option>
-                <option value="2">IS</option>
-                <option value="3">AI</option>
-                <option value="4">CS</option>
-                <option value="5">DS</option>
+                <option value="IT">IT</option>
+                <option value="IS">IS</option>
+                <option value="AI">AI</option>
+                <option value="CS">CS</option>
+                <option value="DS">DS</option>
             </select>
         </div>
     <br>
@@ -31,33 +31,9 @@
 <ul>
     <table id = "inactive_students" class="cards">
    <script>
-    let loadedStudents = loadStudents();
-    let content = "";
-    content += "<tr>";
-    let cnt = 0;
-    for(var i in loadedStudents){
-        if(loadedStudents[i].stat == "Active")
-            continue;
-        content+="<td>";
-        content+="<div class = 'inactive_card'>";
-        content+="<h2>" + loadedStudents[i].fname + " "+loadedStudents[i].lname +"</h2>";
-        content+="<p>University: " + loadedStudents[i].university + "</p>";
-        content+="<p> ID: "+ loadedStudents[i].id +"</p>";
-        content+="<p>Department: " + loadedStudents[i].department + "</p>";
-        content+="<p>gender: "+loadedStudents[i].gender +"</p>";
-        content+="<div style='margin: 24px 0;'>";
-        content+="</div>";
-        content+="</div>";
-        content+="</td>";
-        if((cnt+1)%2 == 0){
-            content += "</tr>";
-            content += "<tr>";
-        }
-        cnt++;
-    
-    }
-    content += "</tr>";
-    document.getElementById("inactive_students").innerHTML = content;
+        display_inactive_students();
+        document.getElementById('inactive_filter').addEventListener('change', display_inactive_students);
+        document.getElementById('inactive_search').addEventListener('keyup', display_inactive_students);
    </script>
               
               
