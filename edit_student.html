@@ -96,6 +96,13 @@
             window.location.href = "inactive_students.html";
         }
       }
+
+      function deleteStudent(){
+        delete loadedStudents[document.getElementById("Id").value];
+        localStorage.setItem("students", JSON.stringify(loadedStudents));
+        alert("Student deleted successfully");
+        window.location.href = "students.html";
+      }
     
         
         
@@ -163,7 +170,7 @@
                     <input type="date" id="Birthday" name="birthday" >
     
                     <button onclick="editStudent()" >Save </button>
-                    <button>Delete Student</button>
+                    <button onclick = "deleteStudent()">Delete Student</button>
                 </div>
 
             </div>
