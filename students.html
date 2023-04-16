@@ -12,7 +12,7 @@
             <button>
                 <a href="students.html">Search</a>
             </button>
-            Filter by
+            <p class="filter_by">Filter by</p>
             <select id = 'filter_dept'>
                 <option value="0">Department</option>
                 <option value="0">Select Department:</option>
@@ -47,6 +47,8 @@
             content+="<p>gender: "+loadedStudents[i].gender +"</p>";
             content+="<div style='margin: 24px 0;'>";   
             content+="</div>";
+            content+="<button><a href=\"edit_student.html\">Edit</a></button>";
+            content+="<button><a href=\"edit_courses.html\">Edit Courses</a></button>";
             content+="</div>";
             content+="</td>";
             if((cnt+1)%2 == 0){

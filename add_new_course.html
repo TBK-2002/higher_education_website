@@ -80,61 +80,56 @@
     </script>
 </head>
 <body>
-<ul>
-    <li>
-        <div class="centered">
-            <div class="title">
-                <!-- <form> -->
-                    <label for="cName">Course name:</label>
-                    <input type="text" id="cName" name="cName" placeholder="Enter course name"><br><br>
+    <div class="centered">
+        <div class="title">
+            <!-- <form> -->
+                <label for="cName">Course name:</label>
+                <input type="text" id="cName" name="cName" placeholder="Enter course name">
+                <label for="ID">ID:</label>
+                <input type="text" id="ID" name="stdID" placeholder="ID">
 
-                    <label for="ID">ID:</label>
-                    <input type="text" id="ID" name="stdID" placeholder="ID"><br><br>
-
-                    <label for="department">Department:</label>
-                    <select id="department">
-                        <option value="0">Select Department:</option>
-                        <option value="IT">IT</option>
-                        <option value="IS">IS</option>
-                        <option value="AI">AI</option>
-                        <option value="CS">CS</option>
-                        <option value="DS">DS</option>
-                    </select><br><br>
+                <label for="department">Department:</label>
+                <select id="department">
+                    <option value="0">Select Department:</option>
+                    <option value="IT">IT</option>
+                    <option value="IS">IS</option>
+                    <option value="AI">AI</option>
+                    <option value="CS">CS</option>
+                    <option value="DS">DS</option>
+                </select>
 <!-- 
-                    <label for="department">Department:</label>
-                    <input type="text" id="department" name="department" placeholder="Department"><br><br> -->
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" placeholder="Department"> -->
 
-                    <label for="noHrs"># of Hours:</label>
-                    <input type="number" id="noHrs" name="noHrs" placeholder="Hours"><br><br>
-                    
+                <label for="noHrs"># of Hours:</label>
+                <input type="number" id="noHrs" name="noHrs" placeholder="Hours">
+                
 
-                    <label for="lecDay">Lecture's Day:</label>
+                <label for="lecDay">Lecture's Day:</label>
 
-                    <!-- <input type="day" id="lecDay" name="lecDay" placeholder="Lecture's day"><br><br> -->
-                    <select id="lecDay">
-                        <option value="0">Select Day:</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                    </select><br><br>
+                <!-- <input type="day" id="lecDay" name="lecDay" placeholder="Lecture's day"> -->
+                <select id="lecDay">
+                    <option value="0">Select Day:</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                </select>
 
-                    <label for="hallNO">Hall Number:</label>
-                    <input type="number" id="hallNO" name="hallNO" placeholder="Hall Number"><br><br>
-
-
-                    <!-- <input type="submit" value="Submit" onclick="createNewCourse()"> -->
-                    <button onclick="createNewCourse()">Submit</button>
+                <label for="hallNO">Hall Number:</label>
+                <input type="number" id="hallNO" name="hallNO" placeholder="Hall Number">
 
 
+                <!-- <input type="submit" value="Submit" onclick="createNewCourse()"> -->
+                
+                
                 <!-- </form> -->
-            </div>
-
+                <button onclick="createNewCourse()">Submit</button>
         </div>
-    </li>
-</ul>
+
+    </div>
 <ul class="nav_bar">
     <li>
         <a href="main_page.html">Home</a>

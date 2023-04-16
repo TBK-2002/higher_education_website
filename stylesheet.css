@@ -1,8 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     padding: 0%;
     margin: 0%;
-    background-color: rgb(0, 0, 0);
-    font-family: 'Roboto', sans-serif;
+    background-color: #eee;
+    font-family: 'Poppins', sans-serif;
 }
 .slogan{
     overflow: hidden;
@@ -55,20 +61,32 @@ body{
 }
 .nav_bar{
     position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
-    background-image: linear-gradient(to bottom, #000000 , #333333 );
     height: 45px;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333333;
+    background-color: #901010d9;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
+
+.nav_bar ul{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .nav_bar li{
     float: left;
     display: inline;
@@ -77,22 +95,35 @@ body{
     padding-right: 20px;
     padding-left: 20px;
     border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
     border-bottom: none;
     margin-top: auto;
     margin-bottom: auto;
+    width: 14%;
+    text-align: center;
 }
 .nav_bar li a{
     text-decoration: none;
     height: max-content;
     text-align: center;
     color: rgb(209, 203, 203);
+    padding: 10px;
+    text-align: center;
 }
 .nav_bar li:hover{
-    background-color: #333333;
+    background-color: #4f0808d9;
+    transition: 0.5s;
+    font-weight: bold;
+}
+.nav_bar li:first-child{
+    border-left: none;
+}
+.nav_bar li:last-child{
+    border-right: none;
 }
 h1{
     display: block;
-    color: white;
+    color: black;
     margin-left: 2%;
     margin-top: 20;
     margin-bottom: 25;
@@ -130,7 +161,7 @@ h2{
     width: 90%;
     height: -moz-fit-content;
     height: fit-content;
-    background-color:#2A2A2A;
+    background-color:#2a2a2ae8;
     position:relative;
     top: 10;
     left: 20;
@@ -138,20 +169,24 @@ h2{
     margin-right: auto;
     margin-left: auto;
     margin-top: 30px;
+    border-radius: 5px;
 }
 .rectangleLGrey {
+    border-radius: 5px;
     width: 90%;
     height: -moz-fit-content;
     height: fit-content;
-    background-color:#dbd8e3;
+    background-color:#ac2e2e;
     position:relative;
     top:10;
     left: 20;
     margin-top: 30px;
-
     margin-right: auto;
     margin-left: auto;
     overflow: hidden;
+}
+.rectangleLGrey p{
+    color: white;
 }
 .title1{
     font-size: 200%;
@@ -169,31 +204,59 @@ h2{
 }
 .card {
     text-align: center;
-    background-color: #3D0000;
+    background-color: rgb(6, 100, 100);
+    border: solid 3px #3936369a;
     height: 90%;
     width: 90%;
     border-radius: 15px;
     overflow: hidden;
     margin: 10px;
     padding: 10px;
+    box-shadow: 1px 1px 5px 1px #000000;
+}
+.cards td:hover{
+    transform: translateY(-5px);
+    transition: 0.5s;
 }
 input{
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     width: 20vh;
     margin: 5px;
+    outline: none;
+    border: 1.8px solid #000000;
+
+}
+input:focus{
+    box-shadow: 1px 1px 10px 1px #000000;
 }
 button{
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     width: fit-content;
     margin: 5px;
+    outline: none;
+    border: none;
+    text-align: center;
+    background-color: #901010d9;
+    color: white;
+    font-size: 1em;
+}
+.filter_by{
+    color: #000000;
+    display: inline;
+    margin-left: 10px;
+    cursor: text;
 }
 select{
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
     width: 20vh;
     margin: 5px;
+}
+select:focus{
+    box-shadow: 1px 1px 10px 1px #000000;
+    outline: none;
 }
 a, a:visited, a:hover, a:active {
     color: inherit;
@@ -300,43 +363,77 @@ a, a:visited, a:hover, a:active {
 }
 
 .title{
+    justify-content: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(auto, 1fr);
+    width: 60%;
     color: white;
     background-image: linear-gradient(to bottom, #262626 , #000000 );
-    width: fit-content;
     border-style: solid;
     border-color: #282525;
     border-radius: 15px;
     box-shadow: 0 0 20px 2px rgb(100, 100, 100);
-    padding: 20px;
+    padding: 50px;
     font-family: inherit;
     position:relative;
     top: 70px;
     margin-left: auto;
     margin-right: auto;
     font-size: 26.5px;
+    gap: 30px;
 }
+
+
+.title div{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 10px;
+}
+
+.title div select{
+    width: 105%;
+}
+
 .title button{
     position: relative;
     text-align: center;
-    /* -ms-transform: translateX(-50%); */
-    transform: translateX(140%);
     border-radius: 10px;
-    padding: 5px;
-    width: 10vh;
+    padding: 10px;
+    width: fit-content;
+    font-size: 0.8em;
+    justify-self: center;
+    align-self: center;
+    grid-column: 1 / -1;
+    cursor: pointer;
+}
+.title button:hover{
+    transform: translateY(-5px);
+    transition: 0.5s;
 }
 .title input{
+    display: inline-block;
+    justify-self: center;
+    align-self: center;
     border-radius: 10px;
-    padding: 5px;
-    width: 20vh;
+    padding: 7px;
+    width: 100%;
 }
 .title select{
+    display: inline-block;
+    justify-self: center;
+    align-self: center;
     border-radius: 10px;
-    padding: 5px;
-    width: 20vh;
+    padding: 7px;
+    width: calc(100% + 15px);
 }
 label{
-    width: 15vh;
+    justify-self: center;
+    align-self: center;
     display: inline-block;
+    width: 15vh;
     font-size: Large;
 }
 .delete{
@@ -355,7 +452,7 @@ label{
     position: relative;
     text-align: center;
     border-style: solid;
-    border-color: #ffffff;
+    border-color: #901010d9;
     overflow: hidden;
 }
 .dep_header{
@@ -365,7 +462,7 @@ label{
     margin: 0%;
     border: 0%;
     top: 0px;
-    background-color: #ffffff;
+    background-color: #901010d9;
     position: relative;
     text-align: center;
 }
@@ -381,10 +478,11 @@ label{
     display: inline-block;
 }
 .dep_content li{
-    list-style-type: initial;
-    color: #ffffff;
+    color: #000000;
     font-size: 20px;
     display: inline-block;
+    margin-left: 30px;
+    letter-spacing: 1px;
 }
 .dep_header h2{
     display: block;
@@ -397,7 +495,7 @@ label{
     text-align: center;
     padding:1% ;
     height: 100%;
-    color: #000000;
+    color: #eee;
 }
 .create_new{
     position: fixed;
@@ -415,21 +513,12 @@ label{
 }
 .departmentBody h1 {
     display: block;
-    color: white;
     margin-left: 20px;
     padding-top: 50px;
     margin-bottom: 25;
     font-size: 5vh;
     font-weight: bold;
     text-align: center;
-}
-.title2{
-    color: white;
-    font-family: inherit;
-    position:relative;
-    top: 70px;
-    left: 0px;
-    font-size: 26.5px;
 }
 label1{
     width: 100px;
