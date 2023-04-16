@@ -9,12 +9,12 @@
 </head>
 <body>
   <div class = "search_button">
-    <input type="text" placeholder="Search..">
+    <input id ="course-name" type="text" placeholder="Search..">
     <button>
         <a href="courses.html">Search</a>
     </button>
     <p class="filter_by"> Filter by </p>
-    <select>
+    <select id="filter-dep">
         <option value="0">Department</option>
         <option value="0">Select Department:</option>
         <option value="IT">IT</option>
@@ -28,6 +28,8 @@
   <table class="cards"> 
     <script>
        display_courses();
+       document.getElementById('filter-dep').addEventListener('change', display_students);
+       document.getElementById('course-name').addEventListener('keyup', display_students);
     </script>
   </table>
 

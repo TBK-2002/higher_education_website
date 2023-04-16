@@ -24,6 +24,16 @@ function loadStudents(){
     return loadedstudents;
 }
 
+function saveCourse(){
+    let loadedStudents = loadStudents();
+    loadedStudents[document.getElementById("confirmID").value].course1 = document.getElementById("crs1").value;
+    loadedStudents[document.getElementById("confirmID").value].course2 = document.getElementById("crs2").value;
+    loadedStudents[document.getElementById("confirmID").value].course3 = document.getElementById("crs3").value;
+    localStorage.setItem("students", JSON.stringify(loadedStudents));
+    alert("Student courses updated successfully! ");
+    window.location.href="students.html";
+}
+
 function display_students(){
   let loadedStudents = loadStudents();
   let content = "";
@@ -60,7 +70,8 @@ function display_students(){
             cnt++;
         }
  
-}}
+}
+        }
   
 content += "</tr>";
 document.getElementById("students").innerHTML = content;
