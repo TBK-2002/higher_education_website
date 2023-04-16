@@ -43,12 +43,11 @@ function display_courses(){
     crs_name = document.getElementById("course-name").value;
     crs_name = crs_name.toLowerCase();
     crs_fname = crs_name.split(" ")[0];
-    crs_lname = crs_name.split(" ")[1];
   content += "<tr>";
   let cnt = 0;
   for(var i in loadedCourses){
-if((crs_lname == null && crs_lname == null)||(loadedCourses[i].fname.toLowerCase().includes(crs_fname) || loadedCourses[i].lname.toLowerCase().includes(crs_lname)) ||  (loadedCourses[i].fname.toLowerCase() == crs_fname && loadedCourses[i].lname.toLowerCase() == crs_lname)){
-    if(document.getElementById("course-name").value == loadedCourses[i].department || document.getElementById("course-name").value == 0){
+    if((crs_fname == loadedCourses[i].name.toLowerCase()) ||(crs_fname == null) || (loadedCourses[i].name.toLowerCase().includes(crs_fname))) {
+    if(document.getElementById("filter-dep").value == loadedCourses[i].department || document.getElementById("filter-dep").value == 0){
         content+="<td>";
         content+="<div class = 'card'>";
         content+="<h2>" + loadedCourses[i].name + "</h2>";
@@ -96,3 +95,5 @@ content+="<td>";
   content += "</tr>";
   document.getElementsByClassName("cards")[0].innerHTML = content;
  */
+
+//if((crs_lname == null && crs_lname == null)||(loadedCourses[i].fname.toLowerCase().includes(crs_fname) || loadedCourses[i].lname.toLowerCase().includes(crs_lname)) ||  (loadedCourses[i].fname.toLowerCase() == crs_fname && loadedCourses[i].lname.toLowerCase() == crs_lname) || (loadedCourses[i].fname.toLowerCase() == crs_fname))

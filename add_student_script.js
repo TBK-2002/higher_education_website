@@ -48,7 +48,7 @@ function display_students(){
         for(var i in loadedStudents){
             if(loadedStudents[i].stat == "Inactive")
                 continue;
-      if((std_lname == null && std_lname == null)||(loadedStudents[i].fname.toLowerCase().includes(std_fname) || loadedStudents[i].lname.toLowerCase().includes(std_lname)) ||  (loadedStudents[i].fname.toLowerCase() == std_fname && loadStudents[i].lname.toLowerCase() == std_lname)){        
+      if((std_fname == null && std_lname == null)||(loadedStudents[i].fname.toLowerCase().includes(std_fname) || loadedStudents[i].lname.toLowerCase().includes(std_lname)) ||  (loadedStudents[i].fname.toLowerCase() == std_fname && loadStudents[i].lname.toLowerCase() == std_lname)){
        if((document.getElementById('filter_dept').value == loadedStudents[i].department || document.getElementById('filter_dept').value == 0)){  
             content+="<td>";
             content+="<div class = 'card'>";
