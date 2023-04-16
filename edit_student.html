@@ -77,6 +77,7 @@
     }
 
     function editStudent(){
+        if(validFName() && validLName() && validUni() && validCourses() && validID()){
         loadedStudents[document.getElementById("Id").value].fname = document.getElementById("Fname").value;
         loadedStudents[document.getElementById("Id").value].lname = document.getElementById("Lname").value;
         loadedStudents[document.getElementById("Id").value].universty = document.getElementById("Universty").value;
@@ -96,6 +97,10 @@
             window.location.href = "inactive_students.html";
         }
       }
+      else{
+            alert("Please enter valid data");
+      }
+    }
 
       function deleteStudent(){
         delete loadedStudents[document.getElementById("Id").value];
