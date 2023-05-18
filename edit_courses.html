@@ -7,44 +7,40 @@
     <script src = "departments_script.js"></script>
     <script src="courses_script.js"></script>
     <script src="add_student_script.js"></script>
-
+    
 </head>
 <body>
-    <ul>
-        <li>
-            <div class="centered">
-                <div class="title">
-                    <label1 for ="id"> Confirm ID:</label1>
-                    <input type="text" id="confirmID" name="id" placeholder="Enter your ID">
+    <div class="centered">
+        <div class="title">
+            <label1 for ="id"> Confirm ID:</label1>
+            <input type="text" id="confirmID" name="id" placeholder="Enter your ID">
 
-                    <label1 for="department">Department:</label1>
-                    <select id = "dep" onchange="showOptions_editCourse()">
-                        <option value="0">Select Department:</option>
-                        <option value="IT">IT</option>
-                        <option value="IS">IS</option>
-                        <option value="AI">AI</option>
-                        <option value="CS">CS</option>
-                        <option value="DS">DS</option>
-                    </select>
+            <label1 for="department">Department:</label1>
+            <select id = "dep" onchange="showOptions_editCourse()">
+                <option value="0">Select Department:</option>
+                <option value="IT">IT</option>
+                <option value="IS">IS</option>
+                <option value="AI">AI</option>
+                <option value="CS">CS</option>
+                <option value="DS">DS</option>
+            </select>
 
-                    <label1 for="courses">Courses:</label1>
-                    <div><select id = "crs1">
-                        <option value="0">Course 1:</option>
-                    </select>
-                    <select id = "crs2">
-                        <option value="0">Course 2:</option>
-                    </select>
-                    <select id = "crs3">
-                        <option value="0">Course 3:</option>
-                    </select> 
-                    </div>
-
-                    <button onclick="saveCourse()" >Save</button>
-                </div>
-
+            <label1 for="courses">Courses:</label1>
+            <div><select id = "crs1">
+                <option value="0">Course 1:</option>
+            </select>
+            <select id = "crs2">
+                <option value="0">Course 2:</option>
+            </select>
+            <select id = "crs3">
+                <option value="0">Course 3:</option>
+            </select> 
             </div>
-        </li>
-    </ul>
+
+            <button onclick="saveCourse()" >Save</button>
+        </div>
+
+    </div>
     <ul class="nav_bar">
         <li>
             <a href="main_page.html">Home</a>

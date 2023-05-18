@@ -25,6 +25,17 @@ function loadStudents(){
 }
 
 function saveCourse(){
+    if(document.getElementById("confirmID").value == ""){
+        alert("Please select a student first");
+        return;
+    }
+    let crs1 = document.getElementById("crs1").value;
+    let crs2 = document.getElementById("crs2").value;
+    let crs3 = document.getElementById("crs3").value;
+    if(crs1 == crs2 || crs1 == crs3 || crs2 == crs3){
+        alert("Courses must be different");
+        return;
+    }
     let loadedStudents = loadStudents();
     loadedStudents[document.getElementById("confirmID").value].course1 = document.getElementById("crs1").value;
     loadedStudents[document.getElementById("confirmID").value].course2 = document.getElementById("crs2").value;
