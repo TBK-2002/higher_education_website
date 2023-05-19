@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+    </head>
+    <body>         
+        {% block content %}
+        {% endblock %}
+        <ul class="nav_bar">
+            <li>
+                <a href="{% url 'main_page' %}">Home</a>
+            </li>
+            <!-- <li>
+                <a href="main_page.html#Anouncments">Announcements</a>
+            </li> -->
+            <li>
+                <a href="{% url 'courses_page' %}">Courses</a>
+            </li>
+            <li>
+                <a href="students.html">Students</a>
+            </li>
+            <li>
+                <a href="departments.html">Departments</a>
+            </li>
+        </ul>
+    </body>
+</html>

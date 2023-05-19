@@ -1,118 +1,97 @@
-{% load static %}
-<!DOCTYPE html>
-<html> 
-    <head> 
-        <meta charset="UTF-8">
-        <title>Barvard University</title>
-        <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
-    </head>
-    <body>         
-        <div class="main_image">
-            <div class="slogan">
-                <img src="{% static 'images/Harvard_shield_wreath.svg.png' %}" alt="barvard logo" class="barvard_logo">
-            </div>
-
-        </div>
-        <h1>
-            Our Partners In Success:
-        </h1>
-        <div class="partners">
-            <img src="{% static 'images/IBM_logo.svg.png' %}" alt="IBM logo">
-            <img src="{% static 'images/Microsoft_logo_(2012).svg.png' %}" alt="Microsoft logo">
-            <img src="{% static 'images/amazon-logo-white._cb1509666198_.png' %}" alt="Amazon logo">
+{% extends "master.html" %}
+{% block title %}
+Barvard University
+{% endblock %}
+{% block content %}
+    {% load static %}
+    <div class="main_image">
+        <div class="slogan">
+            <img src="{% static 'images/Harvard_shield_wreath.svg.png' %}" alt="barvard logo" class="barvard_logo">
         </div>
 
-        <div id="Anouncments"></div>
-        
-        <h1>
-            Announcements:
-        </h1>
-        
-        <div class="rectangleDGrey">
-            <div class="topings">
-                <p style="color: white" >Course Registaration is opened for General programs until 9 March, 2023 </p>
-            </div>
+    </div>
+    <h1>
+        Our Partners In Success:
+    </h1>
+    <div class="partners">
+        <img src="{% static 'images/IBM_logo.svg.png' %}" alt="IBM logo">
+        <img src="{% static 'images/Microsoft_logo_(2012).svg.png' %}" alt="Microsoft logo">
+        <img src="{% static 'images/amazon-logo-white._cb1509666198_.png' %}" alt="Amazon logo">
+    </div>
+
+    <div id="Anouncments"></div>
+    
+    <h1>
+        Announcements:
+    </h1>
+    
+    <div class="rectangleDGrey">
+        <div class="topings">
+            <p style="color: white" >Course Registaration is opened for General programs until 9 March, 2023 </p>
         </div>
-        
+    </div>
+    
 
-        <div class="rectangleLGrey">
-            <div class="topings">
-                <p>Updated (Version 10) General Student Schedule 2nd term 2022/2023
-                    Updated (Version 3) Special Student Schedule 2nd term 2022/2023
-                </p>
-            </div>
+    <div class="rectangleLGrey">
+        <div class="topings">
+            <p>Updated (Version 10) General Student Schedule 2nd term 2022/2023
+                Updated (Version 3) Special Student Schedule 2nd term 2022/2023
+            </p>
         </div>
+    </div>
 
 
-        <div class="rectangleDGrey">
-            <div class="topings">
-                <p style="color: white" >ألف مبروك للاستاذة الدكتورة فاطمة عمارة:
+    <div class="rectangleDGrey">
+        <div class="topings">
+            <p style="color: white" >ألف مبروك للاستاذة الدكتورة فاطمة عمارة:
 
-                    تم ادراج سيادتها من ضمن 33 من 500 الاوائل على مستوى العالم الثانية على مستوى افريقيا فى قائمة العلماء البارزين فى مجال Big Data </p>
-            </div>
-            <div style="margin: 24px 0;">
-            </div>
+                تم ادراج سيادتها من ضمن 33 من 500 الاوائل على مستوى العالم الثانية على مستوى افريقيا فى قائمة العلماء البارزين فى مجال Big Data </p>
         </div>
-
-
-        <div class="rectangleLGrey">
-            <div class="topings">
-                <p>Course Registaration is opened for General programs until 5 Febraury, 2023 </p>
-            </div>
-            <div style="margin: 24px 0;">
-            </div>
+        <div style="margin: 24px 0;">
         </div>
-        
-        <div class="rectangleDGrey">
-            <div class="topings">
-                <p style="color: white" >Course Registaration is opened for General programs until 9 March, 2023 </p>
-            </div>
+    </div>
+
+
+    <div class="rectangleLGrey">
+        <div class="topings">
+            <p>Course Registaration is opened for General programs until 5 Febraury, 2023 </p>
         </div>
-        
-
-        <div class="rectangleLGrey">
-            <div class="topings">
-                <p>Updated (Version 10) General Student Schedule 2nd term 2022/2023
-                    Updated (Version 3) Special Student Schedule 2nd term 2022/2023
-                </p>
-            </div>
+        <div style="margin: 24px 0;">
         </div>
-
-
-        <div class="rectangleDGrey">
-            <div class="topings">
-                <p style="color: white" >ألف مبروك للاستاذة الدكتورة فاطمة عمارة:
-
-                    تم ادراج سيادتها من ضمن 33 من 500 الاوائل على مستوى العالم الثانية على مستوى افريقيا فى قائمة العلماء البارزين فى مجال Big Data </p>
-            </div>
-            <div style="margin: 24px 0;">
-            </div>
+    </div>
+    
+    <div class="rectangleDGrey">
+        <div class="topings">
+            <p style="color: white" >Course Registaration is opened for General programs until 9 March, 2023 </p>
         </div>
+    </div>
+    
 
-
-        <div class="rectangleLGrey">
-            <div class="topings">
-                <p>Course Registaration is opened for General programs until 5 Febraury, 2023 </p>
-            </div>
-            <div style="margin: 24px 0;">
-            </div>
+    <div class="rectangleLGrey">
+        <div class="topings">
+            <p>Updated (Version 10) General Student Schedule 2nd term 2022/2023
+                Updated (Version 3) Special Student Schedule 2nd term 2022/2023
+            </p>
         </div>
-        <ul class="nav_bar">
-            <li>
-                <a href="{% url 'main_page' %}">Home</a>
-            </li>
-            <!-- <li>
-                <a href="main_page.html#Anouncments">Announcements</a>
-            </li> -->
-            <li>
-                <a href="{% url 'courses_page' %}">Courses</a>
-            </li>
-            <li>
-                <a href="students.html">Students</a>
-            </li>
-            <li>
-                <a href="departments.html">Departments</a>
-            </li>
-        </ul>
-    </body>
-</html>
+    </div>
+
+
+    <div class="rectangleDGrey">
+        <div class="topings">
+            <p style="color: white" >ألف مبروك للاستاذة الدكتورة فاطمة عمارة:
+
+                تم ادراج سيادتها من ضمن 33 من 500 الاوائل على مستوى العالم الثانية على مستوى افريقيا فى قائمة العلماء البارزين فى مجال Big Data </p>
+        </div>
+        <div style="margin: 24px 0;">
+        </div>
+    </div>
+
+
+    <div class="rectangleLGrey">
+        <div class="topings">
+            <p>Course Registaration is opened for General programs until 5 Febraury, 2023 </p>
+        </div>
+        <div style="margin: 24px 0;">
+        </div>
+    </div>
+{% endblock %}
