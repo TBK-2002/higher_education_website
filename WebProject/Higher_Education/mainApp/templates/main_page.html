@@ -18,8 +18,8 @@
         </h1>
         <div class="partners">
             <img src="{% static 'images/IBM_logo.svg.png' %}" alt="IBM logo">
-            <img src="static/images/Microsoft_logo_(2012).svg.png" alt="Microsoft logo">
-            <img src="static/images/amazon-logo-white._cb1509666198_.png" alt="Amazon logo">
+            <img src="{% static 'images/Microsoft_logo_(2012).svg.png' %}" alt="Microsoft logo">
+            <img src="{% static 'images/amazon-logo-white._cb1509666198_.png' %}" alt="Amazon logo">
         </div>
 
         <div id="Anouncments"></div>
@@ -99,7 +99,7 @@
         </div>
         <ul class="nav_bar">
             <li>
-                <a href="main_page.html">Home</a>
+                <a href="{% url 'main_page' %}">Home</a>
             </li>
             <li>
                 <a href="main_page.html#Anouncments">Announcements</a>

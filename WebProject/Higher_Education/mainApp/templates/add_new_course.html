@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="courses_script.js"></script>
+    <script src="course.js"></script>
+    <script src="departments_script.js"></script>
+    <script>
+        let loadedCourses = loadCourses();
+        let loadedDepartments = loadDepartment();
+        function validName(){
+            let name = document.getElementById("cName").value;
+            let regex = /^[a-zA-Z ]+$/;
+            if(regex.test(name)){
+                return true;
+            }
+            else{
+                alert("Please enter a valid name");
+                return false;
+            }
+        }
+        function validID(){
+            let id = (document.getElementById("ID").value).toUpperCase();
+            let regex = /^[a-zA-Z]{2}[0-9]{3}$/;
+            if(regex.test(id)){
+                if(loadedCourses[id] != null){
+                    alert("ID already exists");
+                    console.log(loadedCourses[id]);
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            else{
+                alert("Please enter a valid ID");
+                return false;
+            }
+        }
+        function validHours(){
+            if(document.getElementById("noHrs").value > 0 && document.getElementById("noHrs").value < 5) return true;
+            else{
+                alert("Credit hours must be between 1 and 4");
+                return false;
+            }
+        }
+        function validHall(){
+            if(document.getElementById("hallNO").value > 0 && document.getElementById("hallNO").value < 40) return true;
+            else{
+                alert("We curently have only 39 halls");
+                return false;
+            }
+        }
+        function createNewCourse(){
+            if(document.getElementById("cName").value == 0 || document.getElementById("ID").value == 0 || document.getElementById("department").value == 0 || document.getElementById("noHrs").value == 0 || document.getElementById("lecDay").value == 0 || document.getElementById("hallNO").value == 0){
+                alert("Please fill all the fields");
+                return;
+            }
+            else if(!validName() || !validID() || !validHours() || !validHall()){
+                return;
+            }
+            else{
+                loadedCourses[document.getElementById("ID").value] = new Course(
+                    name = document.getElementById("cName").value,
+                    id = (document.getElementById("ID").value).toUpperCase(),
+                    department = document.getElementById("department").value,
+                    hours = document.getElementById("noHrs").value,
+                    day = document.getElementById("lecDay").value,
+                    hall = document.getElementById("hallNO").value,
+                    studentsCount = 0,
+                );
+                loadedDepartments[document.getElementById("department").value].courses.push(document.getElementById("ID").value);
+                localStorage.dep = JSON.stringify(loadedDepartments);
+                localStorage.courses = JSON.stringify(loadedCourses);
+                alert("Course added successfully");
+                window.location.href = "courses.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="centered">
+        <div class="title">
+            <!-- <form> -->
+                <label for="cName">Course name:</label>
+                <input type="text" id="cName" name="cName" placeholder="Enter course name">
+                <label for="ID">ID:</label>
+                <input type="text" id="ID" name="stdID" placeholder="ID">
+
+                <label for="department">Department:</label>
+                <select id="department">
+                    <option value="0">Select Department:</option>
+                    <option value="IT">IT</option>
+                    <option value="IS">IS</option>
+                    <option value="AI">AI</option>
+                    <option value="CS">CS</option>
+                    <option value="DS">DS</option>
+                </select>
+<!-- 
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" placeholder="Department"> -->
+
+                <label for="noHrs"># of Hours:</label>
+                <input type="number" id="noHrs" name="noHrs" placeholder="Hours">
+                
+
+                <label for="lecDay">Lecture's Day:</label>
+
+                <!-- <input type="day" id="lecDay" name="lecDay" placeholder="Lecture's day"> -->
+                <select id="lecDay">
+                    <option value="0">Select Day:</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                </select>
+
+                <label for="hallNO">Hall Number:</label>
+                <input type="number" id="hallNO" name="hallNO" placeholder="Hall Number">
+
+
+                <!-- <input type="submit" value="Submit" onclick="createNewCourse()"> -->
+                
+                
+                <!-- </form> -->
+                <button onclick="createNewCourse()">Submit</button>
+        </div>
+
+    </div>
+<ul class="nav_bar">
+    <li>
+        <a href="main_page.html">Home</a>
+    </li>
+    <li>
+        <a href="main_page.html#Anouncments">Announcements</a>
+    </li>
+    <li>
+        <a href="courses.html">Courses</a>
+    </li>
+    <li>
+        <a href="students.html">Students</a>
+    </li>
+    <li>
+        <a href="departments.html">Departments</a>
+    </li>
+</ul>
+
+</body>
+</html>
