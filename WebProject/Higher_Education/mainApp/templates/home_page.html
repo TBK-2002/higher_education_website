@@ -1,36 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
-    <script src = 'scripts.js'></script>
-</head>
-<body class="home_page">
-    <table class="home_page_table">
-        <tr>
-            <th class="home_page_cell">
-                <h1 class="home_page_title"  > Higher education</h1>
-                <div class="home_page_card" style="background-image: url(/static/images/students.jpeg)"  onclick="home_page_navigate()" ></div> 
-            </th>
-            <th class="home_page_cell">
-                <h1 class="home_page_title"> Human resources</h1>
-                <div class="home_page_card" style="background-image: url(/static/images/human_resources.jpeg)" ></div>
-            </th>
-            
-        </tr>
-        <tr>
-            <th class="home_page_cell">
-                <h1 class="home_page_title"> Labortary tracking</h1>
-                <div class="home_page_card" style="background-image: url(/static/images/labortary_tracking.jpg)" ></div>
-            </th>
-            <th class="home_page_cell">
-                <h1 class="home_page_title"> Student affairs</h1>
-                <div class="home_page_card" style="background-image: url(/static/images/students_affairs.jpg)" ></div>
-            </th>
-            
-        </tr>
-    
-    </table>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+        <script src="{% static 'script.js' %}"></script>
+    </head>
+    <body class="home_page">
+        <table class="home_page_table">
+            <tr>
+                <th class="home_page_cell">
+                    <h1 class="home_page_title"> Higher education</h1>
+                    <div class="home_page_card" style="background-image: url(/static/images/students.jpeg)"  onclick="home_page_navigate()" ></div> 
+                </th>
+                <th class="home_page_cell">
+                    <h1 class="home_page_title"> Human resources</h1>
+                    <div class="home_page_card" style="background-image: url(/static/images/human_resources.jpeg)" ></div>
+                </th>
+                
+            </tr>
+            <tr>
+                <th class="home_page_cell">
+                    <h1 class="home_page_title"> Labortary tracking</h1>
+                    <div class="home_page_card" style="background-image: url(/static/images/labortary_tracking.jpg)" ></div>
+                </th>
+                <th class="home_page_cell">
+                    <h1 class="home_page_title"> Student affairs</h1>
+                    <div class="home_page_card" style="background-image: url(/static/images/students_affairs.jpg)" ></div>
+                </th>
+                
+            </tr>
+        
+        </table>
 
 
-</body>
+    </body>
+</html>
