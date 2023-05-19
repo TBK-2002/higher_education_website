@@ -26,16 +26,33 @@
     </select>
 </div>
 <br>
-  <table class="cards"> 
+  <table class="cards">
+    <tr>
+    {% for course in courses %}
+        <td>
+            <div class = "card">
+                <h2>{{ course.course_name }}</h2>
+                <p class="title1">{{ course.course_id }}</p>
+                <p>Barvard University</p>
+                <p>Number of Students: {{ course.course_students_count }}</p>
+                <p>Department: {{ course.course_department }}</p>
+                <div style="margin: 24px 0;">
+                </div>
+            </div>
+        </td>
+        {% if forloop.counter|divisibleby:3 %}
+            </tr>
+            <tr>
+        {% endif %}
+    {% endfor %}
     <script>
-       display_courses();
        document.getElementById('filter-dep').addEventListener('change', display_courses);
        document.getElementById('course-name').addEventListener('keyup', display_courses);
     </script>
   </table>
 
 <button class = "create_new">
-    <a href="add_new_course.html ">Add New Course</a>
+    <a href="{% url 'add_course_page' %}">Add New Course</a>
 </button>
 
 <ul class="nav_bar">
