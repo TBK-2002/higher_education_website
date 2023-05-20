@@ -6,3 +6,4 @@ class AddCourseForm(forms.Form):
     department = forms.CharField(required=True)
     lecture_day = forms.CharField(required=True)
     hall_number = forms.IntegerField(required=True)
+    
