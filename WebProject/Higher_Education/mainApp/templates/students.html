@@ -1,0 +1,87 @@
+{% extends "master.html" %}
+{% block title %}
+Courses
+{% endblock %}
+{% block content %}
+    <div class = "search_button">
+        <input id = "std-name" type="text" placeholder="Search..">
+        <p class="filter_by"> Filter by </p>
+        <select id="filter-dep">
+            <option value="">Department</option>
+            <option value="IT">IT</option>
+            <option value="IS">IS</option>
+            <option value="AI">AI</option>
+            <option value="CS">CS</option>
+            <option value="DS">DS</option>
+        </select>
+    </div>
+    <br>
+<table class = "cards">
+    <tr id = "students-list">
+        {% for student in students %}
+        <td class ='student-card' data-department="{{ student.student_department }}">
+            <div class = "card">
+                <h2>{{ student.student_name }}</h2>
+                <p class="title1">{{ student.student_id }}</p>
+                <p>Barvard University</p>
+                <p>Department: {{ student.student_department }}</p>
+                <p>Number of Courses: {{ student.student_courses_count }}</p>
+                <div style="margin: 24px 0;"></div>
+            </div>
+        </td>
+        {% if forloop.counter|divisibleby:3 %}
+            </tr>
+            <tr>
+        {% endif %}
+        {% endfor %}
+    </tr>
+</table>
+
+
+<script>
+    var filterDep = document.getElementById("filter_dept").value;
+    var stdName = document.getElementById("std-name").value;
+    var i;
+    for (i = 0; i < student.length; i++) {
+        if (dept == "") {
+            student[i].style.display = "block";
+        } else if (student[i].dataset.department == dept) {
+            student[i].style.display = "block";
+        } else {
+            student[i].style.display = "none";
+        }
+    }
+    document.getElementById("std-name").addEventListener("keyup", function() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("std-name");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("students-list");
+        tr = table.getElementsByTagName("td");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("h2")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) == 0) {
+                    tr[i].style.display = "block";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
+    document.getElementById("filter_dept").addEventListener("change", function() {
+        var dept = document.getElementById("filter-dep").value;
+        var student = document.getElementsByClassName("student-card");
+        var i;
+        for (i = 0; i < student.length; i++) {
+            if (dept == "") {
+                student[i].style.display = "block";
+            } else if (student[i].dataset.department == dept) {
+                student[i].style.display = "block";
+            } else {
+                student[i].style.display = "none";
+            }
+        }
+    });
+</script>
+{% endblock %}

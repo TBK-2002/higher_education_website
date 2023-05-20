@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 from .forms import AddCourseForm, DivErrorList
-from .models import Course
+from .models import Course, Student
 
 def home_page(request):
   template = loader.get_template('home_page.html')
@@ -19,6 +19,14 @@ def courses_page(requeset):
     'courses': courses,
   }
   return HttpResponse(template.render(context, requeset))
+
+def student_page(requeset):
+    students = Student.objects.all().values()
+    template = loader.get_template('students.html')
+    context = {
+        'students': students,
+    }
+    return HttpResponse(template.render(context, requeset))
 
 def add_course_page(request):
   if request.method == "POST":
