@@ -1,0 +1,13 @@
+{% extends "master.html" %}
+{% block title %}
+Add New Student
+{% endblock %}
+{% block content %}
+<div class="centered">
+    <form class="title" action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">   
+    </form>
+</div>
+{% endblock %}

@@ -5,13 +5,9 @@ Courses
 {% block content %}
 <div class = "search_button">
     <input id ="course-name" type="text" placeholder="Search..">
-    <!-- <button>
-        <a href="courses.html">Search</a>
-    </button> -->
     <p class="filter_by"> Filter by </p>
     <select id="filter-dep">
-        <option value="0">Department</option>
-        <option value="0">Select Department:</option>
+        <option value="">Department</option>
         <option value="IT">IT</option>
         <option value="IS">IS</option>
         <option value="AI">AI</option>
@@ -20,28 +16,80 @@ Courses
     </select>
 </div>
 <br>
-  <table class="cards">
-    <tr>
-    {% for course in courses %}
-        <td>
-            <div class = "card">
-                <h2>{{ course.course_name }}</h2>
-                <p class="title1">{{ course.course_id }}</p>
-                <p>Barvard University</p>
-                <p>Number of Students: {{ course.course_students_count }}</p>
-                <p>Department: {{ course.course_department }}</p>
-                <div style="margin: 24px 0;">
+<table class="cards">
+    <tr id="course-list">
+        {% for course in courses %}
+            <td class="course-card" data-department="{{ course.course_department }}">
+                <div class="card">
+                    <h2>{{ course.course_name }}</h2>
+                    <p class="title1">{{ course.course_id }}</p>
+                    <p>Barvard University</p>
+                    <p>Number of Students: {{ course.course_students_count }}</p>
+                    <p>Department: {{ course.course_department }}</p>
+                    <div style="margin: 24px 0;"></div>
                 </div>
-            </div>
-        </td>
-        {% if forloop.counter|divisibleby:3 %}
-            </tr>
-            <tr>
-        {% endif %}
-    {% endfor %}
+            </td>
+            {% if forloop.counter|divisibleby:3 %}
+                </tr>
+                <tr>
+            {% endif %}
+        {% endfor %}
+    </tr>
+</table>
 
-    <button class = "create_new">
-        <a href="{% url 'add_course_page' %}">Add New Course</a>
-    </button>
+<button class = "create_new">
+    <a href="{% url 'add_course_page' %}">Add New Course</a>
+</button>
+
+<script>
+    var dept = document.getElementById("filter-dep").value;
+    var course = document.getElementsByClassName("course-card");
+    var i;
+    for (i = 0; i < course.length; i++) {
+        if (dept == "") {
+            course[i].style.display = "block";
+        } else if (course[i].dataset.department == dept) {
+            course[i].style.display = "block";
+        } else {
+            course[i].style.display = "none";
+        }
+    }
+    document.getElementById("course-name").addEventListener("keyup", function() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("course-name");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("course-list");
+        tr = table.getElementsByTagName("td");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("h2")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) == 0) {
+                    tr[i].style.display = "block";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
+    document.getElementById("filter-dep").addEventListener("change", function() {
+        var dept = document.getElementById("filter-dep").value;
+        var course = document.getElementsByClassName("course-card");
+        var i;
+        for (i = 0; i < course.length; i++) {
+            if (dept == "") {
+                course[i].style.display = "block";
+            } else if (course[i].dataset.department == dept) {
+                course[i].style.display = "block";
+            } else {
+                course[i].style.display = "none";
+            }
+        }
+    });
+
+
+
+    
+</script>
 
 {% endblock %}

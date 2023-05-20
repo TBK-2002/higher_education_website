@@ -6,7 +6,7 @@ Courses
     <div class = "search_button">
         <input id = "std-name" type="text" placeholder="Search..">
         <p class="filter_by"> Filter by </p>
-        <select id="filter-dep">
+        <select id="filter_dept">
             <option value="">Department</option>
             <option value="IT">IT</option>
             <option value="IS">IS</option>
@@ -36,6 +36,8 @@ Courses
         {% endfor %}
     </tr>
 </table>
+<button class = "create_new">
+    <a href="{% url 'add_student_page' %}">Add New Student</a></button>
 
 
 <script>
@@ -70,7 +72,7 @@ Courses
         }
     });
     document.getElementById("filter_dept").addEventListener("change", function() {
-        var dept = document.getElementById("filter-dep").value;
+        var dept = document.getElementById("filter_dept").value;
         var student = document.getElementsByClassName("student-card");
         var i;
         for (i = 0; i < student.length; i++) {
