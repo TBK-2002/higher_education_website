@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from .forms import AddCourseForm
 
 from .forms import AddCourseForm, DivErrorList
 from .models import Course
