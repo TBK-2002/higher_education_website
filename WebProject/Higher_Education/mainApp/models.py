@@ -2,7 +2,7 @@ from django.db import models
 
 class Course(models.Model):
     course_name = models.CharField(max_length=200)
-    course_id = models.IntegerField(default=0)
+    course_id = models.CharField(max_length=20)
     course_department = models.CharField(max_length=200)
     course_hours = models.IntegerField(default=0)
     course_day = models.CharField(max_length=200)
