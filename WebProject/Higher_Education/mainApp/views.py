@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
+
+from .forms import AddCourseForm
 from .models import Course
 
 def home_page(request):
@@ -20,4 +22,8 @@ def courses_page(requeset):
 
 def add_course_page(request):
   template = loader.get_template('add_new_course.html')
-  return HttpResponse(template.render())
+  form = AddCourseForm()
+  context = {
+    'form': form,
+  }
+  return HttpResponse(template.render(context, request))
