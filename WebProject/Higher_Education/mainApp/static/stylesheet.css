@@ -404,7 +404,7 @@ a, a:visited, a:hover, a:active {
     width: 105%;
 }
 
-.title button{
+.title [type="submit"]{
     position: relative;
     text-align: center;
     border-radius: 10px;
@@ -416,7 +416,7 @@ a, a:visited, a:hover, a:active {
     grid-column: 1 / -1;
     cursor: pointer;
 }
-.title button:hover{
+.title [type="submit"]:hover{
     transform: translateY(-5px);
     transition: 0.5s;
 }
@@ -586,7 +586,13 @@ html, body {
     color: white;
 }
 
-
+.errorlist{
+    color: rgb(158, 40, 40);
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 30px;
+    letter-spacing: 1px;
+}
   
 
 
