@@ -1,6 +1,5 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-from .forms import AddCourseForm
 
 from .forms import AddCourseForm, DivErrorList , AddStudentForm
 from .models import Course, Student
@@ -89,7 +88,3 @@ def hatStudents(request):
       return JsonResponse({'students': list(students)})
 
 
-def hatCourses(request):
-    if(request.method == 'GET'):
-      courses = Course.objects.all().values()
-      return JsonResponse({'courses': list(courses)})
