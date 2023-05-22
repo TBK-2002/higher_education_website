@@ -1,6 +1,8 @@
 from django import forms
 from django.core.validators import RegexValidator
 from django.forms.utils import ErrorList
+from .models import Course
+
 
 nameValidator = RegexValidator(r'^[a-zA-Z]+$', 'Only letters are allowed.')
 idValidator = RegexValidator(r'^[a-zA-Z]{2}[0-9]{3}$', 'ID must be 2 letters followed by 3 numbers.')
@@ -31,25 +33,29 @@ class AddCourseForm(forms.Form):
     hall_number = forms.IntegerField(required=True, min_value=1, max_value=20)
 
 class AddStudentForm(forms.Form):
-    fname = forms.CharField(
+    First_Name = forms.CharField(
         required=True,
         max_length=50,
         validators=[nameValidator])
-    lname = forms.CharField(
+    Last_Name = forms.CharField(
         required=True,
         max_length=50,
         validators=[nameValidator])
-    university = forms.CharField(
+    University = forms.CharField(
         required=True,
         max_length=50,
-        validators=[nameValidator])  
-    id = forms.IntegerField(required=True, min_value=1, max_value=99999999)
-    gender = forms.ChoiceField(choices = genderChoices , required=True)
-    status = forms.ChoiceField(choices = (('Active' , 'Active') , ('Inactive' , 'Inactive')) , required=True)
-    courses = forms.ModelMultipleChoiceField(queryset=None, required=True)
-    courses.course1 = forms.ModelChoiceField(queryset=None, required=True)
-    courses.course2 = forms.ModelChoiceField(queryset=None, required=True)
-    courses.course3 = forms.ModelChoiceField(queryset=None, required=True)
+        validators=[nameValidator])
+    
+    Department = forms.ChoiceField(
+        choices=departemntChoices, 
+        required=True)
+    # id = forms.IntegerField(required=True, min_value=1, max_value=99999999)
+    Gender = forms.ChoiceField(choices = genderChoices , required=True)
+    Status = forms.ChoiceField(choices = (('Active' , 'Active') , ('Inactive' , 'Inactive')) , required=True)
+    # Courses = forms.ModelMultipleChoiceField(queryset=Course.objects.get(course_department=department), required=True)
+    # courses.course1 = forms.ModelChoiceField(queryset=None, required=True)
+    # courses.course2 = forms.ModelChoiceField(queryset=None, required=True)
+    # courses.course3 = forms.ModelChoiceField(queryset=None, required=True)
     birth_date = forms.DateField(required=True)
     
   

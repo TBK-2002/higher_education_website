@@ -21,7 +21,7 @@ Courses
         {% for student in students %}
         <td class ='student-card' data-department="{{ student.student_department }}">
             <div class = "card">
-                <h2>{{ student.student_name }}</h2>
+                <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
                 <p class="title1">{{ student.student_id }}</p>
                 <p>Barvard University</p>
                 <p>Department: {{ student.student_department }}</p>

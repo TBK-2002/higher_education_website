@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Kimo Store\Downloads\WebProject\webProject"
+VIRTUAL_ENV="D:/FCI/Year_2_Sem_2/Web_tech/higher_education_website/WebProject/webProject/Scripts"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -132,3 +132,113 @@ content += "</tr>";
 document.getElementById("inactive_students").innerHTML = content;
 
 }
+
+let loadedStudents = loadStudents();   
+function validFName(){
+let fName = document.getElementById("fname").value;
+let regex = /^[A-Z][a-z]*$/;
+if(!regex.test(fName)){
+    window.alert("Enter first name that contains: " + '\n'+
+    "First letter upper and other lower" + '\n'+
+    "No symbols" + '\n'+
+    "No numbers");
+    return false;
+}
+return true;
+
+}
+function validLName(){
+    let lName = document.getElementById("lname").value;
+    let regex = /^[A-Z][a-z]*$/;
+    if(!regex.test(lName)){
+    window.alert("Enter last name that contains: "  + '\n'+
+        "First letter upper and other lower" +  '\n'+
+        "No symbols" + '\n'+
+        "No numbers");
+    return false;
+    }
+    return true;
+
+}
+function validUni(){
+    let uName = document.getElementById("universty").value;
+    let regex = /^[a-zA-Z]{2,4}$/;
+    if(!regex.test(uName)){
+        alert("Enter the Universty abbreviation name: " + '\n'+
+        "No symbols" + '\n'+
+        "No numbers");
+        return false;
+    }
+    return true;
+    
+}
+function validID(){
+    let id = (document.getElementById("stdID").value);
+    let regex=/^[0-9]{8}$/;
+    if(regex.test(id)){
+        if(loadedStudents[id] != null){
+            alert("ID already exists");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    else{
+        alert("Please enter a valid ID");
+        return false;
+    }
+}
+
+function validCourses(){
+    let course1 = document.getElementById("course1").value;
+    let course2 = document.getElementById("course2").value;
+    let course3 = document.getElementById("course3").value;
+    if(course1 == course2 || course1 == course3 || course2 == course3){
+        alert("Please enter different courses");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+
+function createNewStudent(){
+    let loadedCourses = loadCourses();
+    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
+        alert("Please fill all the fields");
+    }
+    else if(!validID() || !validFName()|| !validLName()|| !validUni() || !validCourses()){
+        return;
+    }
+    else{
+        window.alert("Student added successfully");
+        loadedStudents[document.getElementById("stdID").value] = new Student (
+            id = document.getElementById("stdID").value,
+            fname = document.getElementById("fname").value,
+            lname = document.getElementById("lname").value,
+            university =  document.getElementById("universty").value,
+            gender = document.getElementById("gender").value,
+            department = document.getElementById("dep").value,
+            stat = document.getElementById("status").value,
+            course1 = document.getElementById("course1").value,
+            course2 = document.getElementById("course2").value,
+            course3 = document.getElementById("course3").value,
+            birthdate = document.getElementById("birthday").value
+        );
+        loadedCourses[document.getElementById("course1").value].studentsCount++;
+        loadedCourses[document.getElementById("course2").value].studentsCount++;
+        loadedCourses[document.getElementById("course3").value].studentsCount++;
+        localStorage.setItem("courses", JSON.stringify(loadedCourses));
+        localStorage.setItem("students", JSON.stringify(loadedStudents));
+        if(document.getElementById("status").value == "Active"){
+            window.location.href = "students.html";
+        }
+        else{
+            window.location.href = "inactive_students.html";
+        }
+        window.alert("Student added successfully");
+    }
+
+}

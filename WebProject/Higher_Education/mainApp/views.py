@@ -57,28 +57,22 @@ def add_course_page(request):
   
 def add_student_page(request):
   if request.method == 'POST':
-    form = AddStudentForm(request.POST, error_class=DivErrorList)
-    if form.is_valid():
-      fname = form.cleaned_data['fname']
-      lname = form.cleaned_data['lname']
-      university = form.cleaned_data['university']
-      id = form.cleaned_data['id']
-      gender = form.cleaned_data['gender']
-      department = form.cleaned_data['department']
-      status = form.cleaned_data['status']
-      course1 = form.cleaned_data['course1']
-      course2 = form.cleaned_data['course2']
-      course3 = form.cleaned_data['course3']
-      birth_date = form.cleaned_data['birth_date']
-      student = Student(student_fname = fname , student_lname = lname , student_id = id , student_department = department , student_university = university ,student_gender = gender , student_status = status , student_birthdate = birth_date , student_courses = {course1 , course2 , course3} )  
-      student.save()
-      return HttpResponse(student_page(request))
-    else:
-      template = loader.get_template('add_new_student.html')
-      context = {
-        'form': form,
-      }
-      return HttpResponse(template.render(context, request))   
+    # form = AddStudentForm(request.POST, error_class=DivErrorList)
+    fname = request.POST['fname']
+    lname = request.POST['lname']
+    university = request.POST['universty']
+    id = request.POST['stdID']
+    gender = request.POST.get('gender')
+    department = request.POST.get('department')
+    status = request.POST.get('status')
+    course1 = request.POST.get('course1')
+    course2 = request.POST.get('course2')
+    course3 = request.POST.get('course3')
+    birth_date = request.POST.get('birthday')
+    student = Student(student_fname = fname , student_lname = lname , student_id = id , student_department = department , student_university = university ,student_gender = gender , student_status = status, student_birthdate = birth_date   )  
+    student.save()
+    return HttpResponse(student_page(request))
+
   else:
     template = loader.get_template('add_new_student.html')
     form = AddStudentForm(error_class=DivErrorList)
