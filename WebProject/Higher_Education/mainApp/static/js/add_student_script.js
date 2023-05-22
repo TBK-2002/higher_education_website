@@ -1,16 +1,59 @@
 function getStudents(){
     let students = {};
     $.ajax({
-        url: "{% url 'get_students' %}",
+        url: "/hatStudents",
+        type: "GET",
+        success: function(data){
+            for(std in data['students']){
+                students[data["students"][std].student_id] = data["students"][std];
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
     })
-
     return students;
 }
 
-
+function getCourses(){
+    let courses = {};
+    $.ajax({
+        url: "/hatCourses",
+        type: "GET",
+        success: function(data){
+            for(course in data['courses']){
+                courses[data["courses"][course].course_id] = data["courses"][course];
+            }
+        },
+        error: function(error){
+            console.log(error);
+        }
+    })
+    return courses;
+}
 
 
 loadedStudents = getStudents();
+loadedCourses = getCourses();
+
+function showoptions(){
+    // clear previous options
+    document.getElementsByName("course1")[0].innerHTML = "";
+    document.getElementsByName("course2")[0].innerHTML = "";
+    document.getElementsByName("course3")[0].innerHTML = "";
+
+    for(crs in loadedCourses){
+        if(loadedCourses[crs].course_department == document.getElementsByName("department")[0].value){
+            const option = document.createElement("option");
+            const optionText = document.createTextNode(loadedCourses[crs].course_name);
+            option.appendChild(optionText);
+            option.setAttribute("value", loadedCourses[crs].course_name);
+            document.getElementsByName("course1")[0].appendChild(option);
+            document.getElementsByName("course2")[0].appendChild(option.cloneNode(true));
+            document.getElementsByName("course3")[0].appendChild(option.cloneNode(true));
+        }
+    }
+}
 
 function validFName(){
     let fName = document.getElementById("fname").value;

@@ -10,17 +10,16 @@
     <script>
     let loadedStudents = loadStudents();   
     function validFName(){
-    let fName = document.getElementById("fname").value;
-    let regex = /^[A-Z][a-z]*$/;
-    if(!regex.test(fName)){
-        window.alert("Enter first name that contains: " + '\n'+
-        "First letter upper and other lower" + '\n'+
-        "No symbols" + '\n'+
-        "No numbers");
-        return false;
-    }
-    return true;
-   
+        let fName = document.getElementById("fname").value;
+        let regex = /^[A-Z][a-z]*$/;
+        if(!regex.test(fName)){
+            window.alert("Enter first name that contains: " + '\n'+
+            "First letter upper and other lower" + '\n'+
+            "No symbols" + '\n'+
+            "No numbers");
+            return false;
+        }
+        return true;
     }
     function validLName(){
         let lName = document.getElementById("lname").value;
