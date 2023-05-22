@@ -38,12 +38,12 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:/FCI/Year_2_Sem_2/Web_tech/higher_education_website/WebProject/webProject/Scripts"
+VIRTUAL_ENV="C:\Users\Kimo Store\Downloads\Web_Projectt\higher_education_website\WebProject>"  
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/Scripts:$PATH"
-export PATH
+export PATHs
 
 # unset PYTHONHOME if set
 # this will fail if PYTHONHOME is set to the empty string (which is bad anyway)

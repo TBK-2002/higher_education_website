@@ -41,49 +41,30 @@ Courses
 
 
 <script>
-    var filterDep = document.getElementById("filter_dept").value;
-    var stdName = document.getElementById("std-name").value;
-    var i;
-    for (i = 0; i < student.length; i++) {
-        if (dept == "") {
-            student[i].style.display = "block";
-        } else if (student[i].dataset.department == dept) {
-            student[i].style.display = "block";
-        } else {
-            student[i].style.display = "none";
-        }
-    }
-    document.getElementById("std-name").addEventListener("keyup", function() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("std-name");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("students-list");
-        tr = table.getElementsByTagName("td");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("h2")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) == 0) {
-                    tr[i].style.display = "block";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    });
-    document.getElementById("filter_dept").addEventListener("change", function() {
-        var dept = document.getElementById("filter_dept").value;
-        var student = document.getElementsByClassName("student-card");
-        var i;
-        for (i = 0; i < student.length; i++) {
-            if (dept == "") {
-                student[i].style.display = "block";
-            } else if (student[i].dataset.department == dept) {
-                student[i].style.display = "block";
+   var dept = document.getElementById("filter_dept");
+    var std_name = document.getElementById("std-name");
+    var stds = document.getElementsByClassName("student-card");
+    dept.addEventListener("change", function(){
+        for (var i = 0; i < stds.length; i++) {
+            if (dept.value == stds[i].getAttribute("data-department") || dept.value == "") {
+                stds[i].style.display = "table-cell";
             } else {
-                student[i].style.display = "none";
+                stds[i].style.display = "none";
             }
         }
     });
+    std_name.addEventListener("keyup", function(){
+        var dept = document.getElementById("filter_dept").value;
+        for (var i = 0; i < stds.length; i++) {
+            var dept2 = stds[i].getAttribute("data-department");
+            if (stds[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(std_name.value.toLowerCase()) && (dept == "" || dept ==dept2)) {
+                stds[i].style.display = "table-cell";
+            } else {
+                stds[i].style.display = "none";
+            }
+        }
+    });
+
+
 </script>
 {% endblock %}
