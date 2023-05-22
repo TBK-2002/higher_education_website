@@ -1,0 +1,67 @@
+{% extends "master.html" %}
+{% load static %}
+{% block title %}
+Add New Student
+{% endblock %}
+{% block content %}
+<script src="{% static 'js/add_student_script.js' %}"></script>
+<div class="centered">
+    <form class="title" action="" method="post" onsubmit="return validateForm()" novalidate>
+        {% csrf_token %}
+        <label1 for="fname">First name:</label1>
+        <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+
+        <label1 for="lname">Last name:</label1>
+        <input type="text" id="lname" name="lname" placeholder="Enter your last name">
+
+        <label1 for="universty">Universty:</label1>
+        <input type="text" id="universty" name="universty" placeholder="Universty">
+
+        <label1 for="stdID">STD ID:</label1>
+        <input type="number" id="stdID" name="stdID" placeholder="ID">
+
+        <label1 for="gender">Gender:</label1>
+        <select name = "gender">
+            <option value="0">Select Gender:</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label1 for="department">Department:</label1>
+        <select name = "department" onchange="showoptions()">
+            <option value="0">Select Department:</option>
+            <option value="IT">IT</option>
+            <option value="IS">IS</option>
+            <option value="AI">AI</option>
+            <option value="CS">CS</option>
+            <option value="DS">DS</option>
+        </select>
+
+        <label1 for="status">Status:</label1>
+        <select name = "status">
+            <option value="0">Select status:</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+        </select>
+        
+
+        <label1 for="courses">Courses:</label1>
+        <div><select name = "course1">
+            <option value="0">Course 1:</option>
+        </select>
+        <select name = "course2">
+            <option value="0">Course 2:</option>
+        </select>
+        <select name = "course3">
+            <option value="0">Course 3:</option>
+        </select> 
+        </div>
+
+
+        <label1 for="birthday">Birthdate:</label1>
+        <input type="date" id="birthday" name="birthday" >
+
+        <input type="submit" value="Submit">  
+    </form>
+</div>
+{% endblock %}

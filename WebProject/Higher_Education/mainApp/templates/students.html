@@ -1,0 +1,70 @@
+{% extends "master.html" %}
+{% block title %}
+Courses
+{% endblock %}
+{% block content %}
+    <div class = "search_button">
+        <input id = "std-name" type="text" placeholder="Search..">
+        <p class="filter_by"> Filter by </p>
+        <select id="filter_dept">
+            <option value="">Department</option>
+            <option value="IT">IT</option>
+            <option value="IS">IS</option>
+            <option value="AI">AI</option>
+            <option value="CS">CS</option>
+            <option value="DS">DS</option>
+        </select>
+    </div>
+    <br>
+<table class = "cards">
+    <tr id = "students-list">
+        {% for student in students %}
+        <td class ='student-card' data-department="{{ student.student_department }}">
+            <div class = "card">
+                <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
+                <p class="title1">{{ student.student_id }}</p>
+                <p>Barvard University</p>
+                <p>Department: {{ student.student_department }}</p>
+                <p>Number of Courses: {{ student.student_courses_count }}</p>
+                <div style="margin: 24px 0;"></div>
+            </div>
+        </td>
+        {% if forloop.counter|divisibleby:3 %}
+            </tr>
+            <tr>
+        {% endif %}
+        {% endfor %}
+    </tr>
+</table>
+<button class = "create_new">
+    <a href="{% url 'add_student_page' %}">Add New Student</a></button>
+
+
+<script>
+   var dept = document.getElementById("filter_dept");
+    var std_name = document.getElementById("std-name");
+    var stds = document.getElementsByClassName("student-card");
+    dept.addEventListener("change", function(){
+        for (var i = 0; i < stds.length; i++) {
+            if (dept.value == stds[i].getAttribute("data-department") || dept.value == "") {
+                stds[i].style.display = "table-cell";
+            } else {
+                stds[i].style.display = "none";
+            }
+        }
+    });
+    std_name.addEventListener("keyup", function(){
+        var dept = document.getElementById("filter_dept").value;
+        for (var i = 0; i < stds.length; i++) {
+            var dept2 = stds[i].getAttribute("data-department");
+            if (stds[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(std_name.value.toLowerCase()) && (dept == "" || dept ==dept2)) {
+                stds[i].style.display = "table-cell";
+            } else {
+                stds[i].style.display = "none";
+            }
+        }
+    });
+
+
+</script>
+{% endblock %}

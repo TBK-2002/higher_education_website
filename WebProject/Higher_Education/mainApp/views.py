@@ -1,9 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .forms import AddCourseForm
 
-from .forms import AddCourseForm, DivErrorList
-from .models import Course
+from .forms import AddCourseForm, DivErrorList , AddStudentForm
+from .models import Course, Student
 
 def home_page(request):
   template = loader.get_template('home_page.html')
@@ -20,6 +20,14 @@ def courses_page(requeset):
     'courses': courses,
   }
   return HttpResponse(template.render(context, requeset))
+
+def student_page(requeset):
+    students = Student.objects.all().values()
+    template = loader.get_template('students.html')
+    context = {
+        'students': students,
+    }
+    return HttpResponse(template.render(context, requeset))
 
 def add_course_page(request):
   if request.method == "POST":
@@ -47,3 +55,41 @@ def add_course_page(request):
       'form': form,
     }
     return HttpResponse(template.render(context, request))
+  
+def add_student_page(request):
+  if request.method == 'POST':
+    # form = AddStudentForm(request.POST, error_class=DivErrorList)
+    fname = request.POST['fname']
+    lname = request.POST['lname']
+    university = request.POST['universty']
+    id = request.POST['stdID']
+    gender = request.POST.get('gender')
+    department = request.POST.get('department')
+    status = request.POST.get('status')
+    course1 = request.POST.get('course1')
+    course2 = request.POST.get('course2')
+    course3 = request.POST.get('course3')
+    birth_date = request.POST.get('birthday')
+    student = Student(student_fname = fname , student_lname = lname , student_id = id , student_department = department , student_university = university ,student_gender = gender , student_status = status, student_birthdate = birth_date   )  
+    student.save()
+    return HttpResponse(student_page(request))
+
+  else:
+    template = loader.get_template('add_new_student.html')
+    form = AddStudentForm(error_class=DivErrorList)
+    context = {
+      'form': form,
+    }
+    return HttpResponse(template.render(context, request))              
+    
+
+def hatStudents(request):
+    if(request.method == 'GET'):
+      students = Student.objects.all().values()
+      return JsonResponse({'students': list(students)})
+
+
+def hatCourses(request):
+    if(request.method == 'GET'):
+      courses = Course.objects.all().values()
+      return JsonResponse({'courses': list(courses)})

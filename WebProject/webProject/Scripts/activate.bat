@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Kimo Store\Downloads\WebProject\webProject
+set VIRTUAL_ENV=C:\Users\Kimo Store\Downloads\Web_Projectt\higher_education_website\WebProject  
 
 if not defined PROMPT set PROMPT=$P$G
 

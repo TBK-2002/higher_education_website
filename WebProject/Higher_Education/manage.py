@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+sys.path.append("D:\FCI\Year_2_Sem_2\Web_tech\higher_education_website\WebProject\webProject\Scripts") 
 
 
 def main():

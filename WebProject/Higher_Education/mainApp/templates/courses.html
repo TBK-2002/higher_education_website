@@ -42,6 +42,37 @@ Courses
 </button>
 
 <script>
+    var dep = document.getElementById("filter-dep");
+    var course_name = document.getElementById("course-name");
+    var courses = document.getElementsByClassName("course-card");
+    dep.addEventListener("change", function(){
+        for (var i = 0; i < courses.length; i++) {
+            if (dep.value == courses[i].getAttribute("data-department") || dep.value == "") {
+                courses[i].style.display = "table-cell";
+            } else {
+                courses[i].style.display = "none";
+            }
+        }
+    });
+    course_name.addEventListener("keyup", function(){
+        var dep = document.getElementById("filter-dep").value;
+        for (var i = 0; i < courses.length; i++) {
+            var dep2 = courses[i].getAttribute("data-department");
+            if (courses[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(course_name.value.toLowerCase()) && (dep == "" || dep ==dep2)) {
+                courses[i].style.display = "table-cell";
+            } else {
+                courses[i].style.display = "none";
+            }
+        }
+    });
+
+
+
+
+    
+</script>
+
+<script>
     var dept = document.getElementById("filter-dep").value;
     var course = document.getElementsByClassName("course-card");
     var i;

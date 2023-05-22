@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>         
         {% block content %}
@@ -20,7 +21,7 @@
                 <a href="{% url 'courses_page' %}">Courses</a>
             </li>
             <li>
-                <a href="students.html">Students</a>
+                <a href="{% url 'student_page' %}">Students</a>
             </li>
             <li>
                 <a href="departments.html">Departments</a>
