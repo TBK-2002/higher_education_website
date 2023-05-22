@@ -20,7 +20,9 @@ class Student(models.Model):
     student_gender = models.CharField(max_length=10)
     student_status = models.CharField(max_length=10)
     student_birthdate = models.DateField()
-    student_courses = models.ManyToManyField(Course)
+    student_course1 = models.CharField(max_length=100)
+    student_course2 = models.CharField(max_length=100)
+    student_course3 = models.CharField(max_length=100)
 
     def __str__(self):
         return self.student_id

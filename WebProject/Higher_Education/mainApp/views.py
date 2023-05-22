@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 
 from .forms import AddCourseForm, DivErrorList , AddStudentForm
@@ -82,6 +82,9 @@ def add_student_page(request):
     return HttpResponse(template.render(context, request))              
     
 
-
+def hatStudents(request):
+    if(request.method == 'GET'):
+      students = Student.objects.all().values()
+      return JsonResponse({'students': list(students)})
 
 
