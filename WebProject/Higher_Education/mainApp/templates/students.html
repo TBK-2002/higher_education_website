@@ -41,7 +41,7 @@ Courses
 
 
 <script>
-    var filterDep = document.getElementById("filter_dept").value;
+    var dept = document.getElementById("filter_dept").value;
     var stdName = document.getElementById("std-name").value;
     var i;
     for (i = 0; i < student.length; i++) {
@@ -85,5 +85,6 @@ Courses
             }
         }
     });
+    console.log(document.getElementById("filter_dept")).value
 </script>
 {% endblock %}
