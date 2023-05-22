@@ -91,4 +91,8 @@ def hatCourses(request):
     if(request.method == 'GET'):
       courses = Course.objects.all().values()
       return JsonResponse({'courses': list(courses)})
+    
+def departments_page(request):
+    template = loader.get_template('departments.html')
+    return HttpResponse(template.render())
 
