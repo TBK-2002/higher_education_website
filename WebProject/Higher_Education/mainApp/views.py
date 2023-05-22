@@ -86,5 +86,9 @@ def hatStudents(request):
     if(request.method == 'GET'):
       students = Student.objects.all().values()
       return JsonResponse({'students': list(students)})
-
+    
+def hatCourses(request):
+    if(request.method == 'GET'):
+      courses = Course.objects.all().values()
+      return JsonResponse({'courses': list(courses)})
 
