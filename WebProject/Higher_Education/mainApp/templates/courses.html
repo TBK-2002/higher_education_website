@@ -42,50 +42,30 @@ Courses
 </button>
 
 <script>
-    var dept = document.getElementById("filter-dep").value;
-    var course = document.getElementsByClassName("course-card");
-    var i;
-    for (i = 0; i < course.length; i++) {
-        if (dept == "") {
-            course[i].style.display = "block";
-        } else if (course[i].dataset.department == dept) {
-            course[i].style.display = "block";
-        } else {
-            course[i].style.display = "none";
-        }
-    }
-    document.getElementById("course-name").addEventListener("keyup", function() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("course-name");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("course-list");
-        tr = table.getElementsByTagName("td");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("h2")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) == 0) {
-                    tr[i].style.display = "block";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    });
-    document.getElementById("filter-dep").addEventListener("change", function() {
-        var dept = document.getElementById("filter-dep").value;
-        var course = document.getElementsByClassName("course-card");
-        var i;
-        for (i = 0; i < course.length; i++) {
-            if (dept == "") {
-                course[i].style.display = "block";
-            } else if (course[i].dataset.department == dept) {
-                course[i].style.display = "block";
+    var dep = document.getElementById("filter-dep");
+    var course_name = document.getElementById("course-name");
+    var courses = document.getElementsByClassName("course-card");
+    dep.addEventListener("change", function(){
+        for (var i = 0; i < courses.length; i++) {
+            if (dep.value == courses[i].getAttribute("data-department") || dep.value == "") {
+                courses[i].style.display = "table-cell";
             } else {
-                course[i].style.display = "none";
+                courses[i].style.display = "none";
             }
         }
     });
+    course_name.addEventListener("keyup", function(){
+        var dep = document.getElementById("filter-dep").value;
+        for (var i = 0; i < courses.length; i++) {
+            var dep2 = courses[i].getAttribute("data-department");
+            if (courses[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(course_name.value.toLowerCase()) && (dep == "" || dep ==dep2)) {
+                courses[i].style.display = "table-cell";
+            } else {
+                courses[i].style.display = "none";
+            }
+        }
+    });
+
 
 
 
