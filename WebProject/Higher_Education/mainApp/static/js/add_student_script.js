@@ -38,21 +38,34 @@ loadedCourses = getCourses();
 
 function showoptions(){
     // clear previous options
+    console.log(document.getElementsByName("department")[0].value);
     document.getElementsByName("course1")[0].innerHTML = "";
     document.getElementsByName("course2")[0].innerHTML = "";
     document.getElementsByName("course3")[0].innerHTML = "";
-
-    for(crs in loadedCourses){
-        if(loadedCourses[crs].course_department == document.getElementsByName("department")[0].value){
-            const option = document.createElement("option");
-            const optionText = document.createTextNode(loadedCourses[crs].course_name);
-            option.appendChild(optionText);
-            option.setAttribute("value", loadedCourses[crs].course_name);
-            document.getElementsByName("course1")[0].appendChild(option);
-            document.getElementsByName("course2")[0].appendChild(option.cloneNode(true));
-            document.getElementsByName("course3")[0].appendChild(option.cloneNode(true));
+    let courses = {};
+    $.ajax({
+        url: "/hatCourses",
+        type: "GET",
+        success: function(data){
+            for(course in data['courses']){
+                courses[data["courses"][course].course_id] = data["courses"][course];
+            }
+            for(crs in courses){
+                if(courses[crs].course_department == document.getElementsByName("department")[0].value){
+                    const option = document.createElement("option");
+                    const optionText = document.createTextNode(courses[crs].course_name);
+                    option.appendChild(optionText);
+                    option.setAttribute("value", courses[crs].course_name);
+                    document.getElementsByName("course1")[0].appendChild(option);
+                    document.getElementsByName("course2")[0].appendChild(option.cloneNode(true));
+                    document.getElementsByName("course3")[0].appendChild(option.cloneNode(true));
+                }
+            }
+        },
+        error: function(error){
+            console.log(error);
         }
-    }
+    })
 }
 
 function validFName(){
@@ -111,9 +124,9 @@ function validID(){
 }
 
 function validCourses(){
-    let course1 = document.getElementById("course1").value;
-    let course2 = document.getElementById("course2").value;
-    let course3 = document.getElementById("course3").value;
+    let course1 = document.getElementsByName("course1")[0].value;
+    let course2 = document.getElementsByName("course2")[0].value;
+    let course3 = document.getElementsByName("course3")[0].value;
     if(course1 == course2 || course1 == course3 || course2 == course3){
         alert("Please enter different courses");
         return false;
@@ -125,5 +138,17 @@ function validCourses(){
 
 
 function validateForm(){
+    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
+        alert("Please fill all the fields");
+        return false;
+    }
     return validFName() && validLName() && validUni() && validID() && validCourses();
+}
+
+function validateEditForm(){
+    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
+        alert("Please fill all the fields");
+        return false;
+    }
+    return validFName() && validLName() && validUni() && validCourses();
 }
