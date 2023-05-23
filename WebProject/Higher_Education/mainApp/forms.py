@@ -4,7 +4,7 @@ from django.forms.utils import ErrorList
 from .models import Course
 
 
-nameValidator = RegexValidator(r'^[a-zA-Z]+$', 'Only letters are allowed.')
+nameValidator = RegexValidator(r'^[a-zA-Z ]+$', 'Only letters are allowed.')
 idValidator = RegexValidator(r'^[a-zA-Z]{2}[0-9]{3}$', 'ID must be 2 letters followed by 3 numbers.')
 departemntChoices = (('CS', 'CS'), ('DS', 'DS'), ('IS', 'IS'), ('IT', 'IT'), ('AI', 'AI'))
 genderChoices = (('Male' , 'Male') ,  ('Female' , 'Female'))
