@@ -11,4 +11,5 @@ urlpatterns = [
     path('hatStudents', views.hatStudents, name='hatStudents'),
     path('hatCourses', views.hatCourses, name='hatCourses'),
     path('departments_page' , views.departments_page , name='departments_page'),
+    path('inactive_students_page' , views.inactive_students_page , name='inactive_students_page'),
 ]

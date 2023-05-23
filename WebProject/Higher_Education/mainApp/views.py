@@ -96,3 +96,12 @@ def departments_page(request):
     template = loader.get_template('departments.html')
     return HttpResponse(template.render())
 
+def inactive_students_page(request):
+    students = Student.objects.all().values()
+    template = loader.get_template('inactive_students.html')
+    context = {
+        'students': students,
+    }
+    return HttpResponse(template.render(context, request))
+
+
