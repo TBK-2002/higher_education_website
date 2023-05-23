@@ -1,4 +1,5 @@
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect
 from django.template import loader
 
 from .forms import AddCourseForm, DivErrorList , AddStudentForm
@@ -147,6 +148,7 @@ def edit_student_page(request, student_id):
       date_str = student[0].student_birthdate.strftime('%Y-%m-%d')
 
       context = {
+          'idd': student_id,
           'fname': student[0].student_fname,
           'lname': student[0].student_lname,
           'university': student[0].student_university,
@@ -160,3 +162,9 @@ def edit_student_page(request, student_id):
           'course3': student[0].student_course3,
       }
       return HttpResponse(template.render(context, request))
+
+def delete_student(request, student_id):
+  student = Student.objects.all().filter(id=student_id)
+  student[0].delete()
+  return redirect('/student_page/')
+   
