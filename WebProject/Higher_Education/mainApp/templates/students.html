@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 {% block title %}
-Courses
+Students
 {% endblock %}
 {% block content %}
     <div class = "search_button">
@@ -25,8 +25,8 @@ Courses
                 <p class="title1">{{ student.student_id }}</p>
                 <p>Barvard University</p>
                 <p>Department: {{ student.student_department }}</p>
-                <p>Number of Courses: {{ student.student_courses_count }}</p>
                 <div style="margin: 24px 0;"></div>
+                <button><a href="../edit_student_page/{{ student.id }}">Edit</a></button>
             </div>
         </td>
         {% if forloop.counter|divisibleby:3 %}
