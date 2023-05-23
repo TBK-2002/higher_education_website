@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 {% block title %}
-Students
+Inactive Students
 {% endblock %}
 {% block content %}
     <div class = "search_button">
@@ -14,34 +14,33 @@ Students
             <option value="CS">CS</option>
             <option value="DS">DS</option>
         </select>
-    </div>s
+    </div>
     <br>
     <div style="margin-left: auto; margin-right: auto; text-align: center;">
         <button><a href = "{% url 'student_page' %}" >active</a></button>
          <button><a href = "/inactive_students_page">inactive</a></button>
-    </div>
+
 <table class = "cards">
     <tr id = "students-list">
         {% for student in students %}
-        <td class ='student-card' data-department="{{ student.student_department }}">
-            <div class = "card">
-                <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
-                <p class="title1">{{ student.student_id }}</p>
-                <p>Barvard University</p>
-                <p>Department: {{ student.student_department }}</p>
-                <div style="margin: 24px 0;"></div>
-                <button><a href="../edit_student_page/{{ student.id }}">Edit</a></button>
-            </div>
-        </td>
-        {% if forloop.counter|divisibleby:3 %}
-            </tr>
-            <tr>
-        {% endif %}
+            {% if student.student_status == 'Inactive' %}
+                <td class ='student-card' data-department="{{ student.student_department }}">
+                    <div class = "inactive_card">
+                        <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
+                        <p class="title1">{{ student.student_id }}</p>
+                        <p>Barvard University</p>
+                        <p>Department: {{ student.student_department }}</p>
+                        <p>Number of Courses: {{ student.student_courses_count }}</p>
+                        <div style="margin: 24px 0;"></div>
+                    </div>
+                </td>
+            {% endif %}
+        </tr>
         {% endfor %}
     </tr>
 </table>
 <button class = "create_new">
-    <a href="{% url 'add_student_page' %}">Add New Student</a></button>
+    <a href="/'add_student_page">Add New Student</a></button>
 
 
 <script>
