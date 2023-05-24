@@ -77,7 +77,7 @@ def add_student_page(request):
     course2 = request.POST.get('course2')
     course3 = request.POST.get('course3')
     birth_date = request.POST.get('birthday')
-    student = Student(student_fname = fname , student_lname = lname , student_id = id , student_department = department , student_university = university ,student_gender = gender , student_status = status, student_birthdate = birth_date   )  
+    student = Student(student_fname = fname , student_lname = lname , student_id = id , student_department = department , student_university = university ,student_gender = gender , student_status = status, student_birthdate = birth_date, student_course1 = course1, student_course2 = course2, student_course3 = course3   )  
     student.save()
     return HttpResponse(student_page(request))
 
@@ -114,7 +114,6 @@ def inactive_students_page(request):
 
 def edit_student_page(request, student_id):
     if request.method == 'POST':
-      print(request.POST['fname'])
       fname = request.POST['fname']
       lname = request.POST['lname']
       university = request.POST['universty']
@@ -125,14 +124,12 @@ def edit_student_page(request, student_id):
       course2 = request.POST.get('course2')
       course3 = request.POST.get('course3')
       birth_date = request.POST.get('birthday')
-      student = Student.objects.all()[student_id-1]
+      student = Student.objects.all().filter(id=student_id)[0]
       student.student_fname = fname
       student.student_lname = lname
       student.student_university = university
       student.student_gender = gender
       student.student_department = department
-      print(student.student_department)
-      print(department)
       student.student_status = status
       student.student_course1 = course1
       student.student_course2 = course2

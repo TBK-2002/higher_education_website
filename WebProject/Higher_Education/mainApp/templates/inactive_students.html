@@ -21,26 +21,27 @@ Inactive Students
          <button><a href = "/inactive_students_page">inactive</a></button>
 
 <table class = "cards">
-    <tr id = "students-list">
-        {% for student in students %}
-            {% if student.student_status == 'Inactive' %}
+    {% for student in students %}
+        {% if student.student_status == 'Inactive' %}
+            <tr id = "students-list">
                 <td class ='student-card' data-department="{{ student.student_department }}">
                     <div class = "inactive_card">
                         <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
                         <p class="title1">{{ student.student_id }}</p>
                         <p>Barvard University</p>
+                        <p>University: {{ student.student_university }}</p>
                         <p>Department: {{ student.student_department }}</p>
-                        <p>Number of Courses: {{ student.student_courses_count }}</p>
                         <div style="margin: 24px 0;"></div>
+                        <button><a href="../edit_student_page/{{ student.id }}">Edit</a></button>
                     </div>
                 </td>
-            {% endif %}
-        </tr>
-        {% endfor %}
-    </tr>
+            </tr>
+        {% endif %}
+    {% endfor %}
 </table>
+<div><br><br><br></div>
 <button class = "create_new">
-    <a href="/'add_student_page">Add New Student</a></button>
+    <a href="/add_student_page">Add New Student</a></button>
 
 
 <script>

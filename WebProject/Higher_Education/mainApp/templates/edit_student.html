@@ -8,6 +8,9 @@ Students
 <div class="centered">
     <form class="title" action="" method="post" onsubmit="return validateEditForm()" novalidate>
         {% csrf_token %}
+        <label1 for="stdID">STD ID:</label1>
+        <div> {{ id }} </div>
+
         <label1 for="fname">First name:</label1>
         <input type="text" id="fname" name="fname" placeholder="Please enter your first name">
         
@@ -17,18 +20,15 @@ Students
         <label1 for="universty">Universty:</label1>
         <input type="text" id="universty" name="universty" placeholder="Universty">
         
-        <label1 for="stdID">STD ID:</label1>
-        <div> {{ id }} </div>
-        
         <label1 for="gender">Gender:</label1>
-        <select name = "gender" >
+        <select id="gender" name = "gender" >
             <option value="0">Select Gender:</option>
             <option value="Male" {% if gender == "Male" %}selected{% endif %}>Male</option>
             <option value="Female" {% if gender == "Female" %}selected{% endif %}>Female</option>
         </select>
         
         <label1 for="department">Department:</label1>
-        <select name = "department" onchange="showoptions()">
+        <select id="department" name = "department" onchange="showoptions()">
             <option value="IT" {% if department == "IT" %}selected{% endif %}>IT</option>
             <option value="IS" {% if department == "IS" %}selected{% endif %}>IS</option>
             <option value="AI" {% if department == "AI" %}selected{% endif %}>AI</option>
@@ -37,7 +37,7 @@ Students
         </select>
         
         <label1 for="status">Status:</label1>
-        <select name = "status">
+        <select id="status" name = "status">
             <option value="0">Select status:</option>
             <option value="Active" {% if status == "Active" %}selected{% endif %}>Active</option>
             <option value="Inactive" {% if status == "Inactive" %}selected{% endif %}>Inactive</option>
@@ -45,13 +45,13 @@ Students
         
         
         <label1 for="courses">Courses:</label1>
-        <div><select name = "course1">
+        <div><select id="course1" name = "course1">
             <option value="0" >Course 1:</option>
         </select>
-        <select name = "course2">
+        <select id="course2" name = "course2">
             <option value="0">Course 2:</option>
         </select>
-        <select name = "course3">
+        <select id="course3" name = "course3">
             <option value="0">Course 3:</option>
         </select> 
     </div>

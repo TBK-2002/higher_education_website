@@ -20,55 +20,55 @@ Students
         <button><a href = "{% url 'student_page' %}" >active</a></button>
          <button><a href = "/inactive_students_page">inactive</a></button>
     </div>
-<table class = "cards">
-    <tr id = "students-list">
+    <table class = "cards">
         {% for student in students %}
-        <td class ='student-card' data-department="{{ student.student_department }}">
-            <div class = "card">
-                <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
-                <p class="title1">{{ student.student_id }}</p>
-                <p>Barvard University</p>
-                <p>Department: {{ student.student_department }}</p>
-                <div style="margin: 24px 0;"></div>
-                <button><a href="../edit_student_page/{{ student.id }}">Edit</a></button>
-            </div>
-        </td>
-        {% if forloop.counter|divisibleby:3 %}
-            </tr>
-            <tr>
-        {% endif %}
-        {% endfor %}
-    </tr>
-</table>
-<button class = "create_new">
-    <a href="{% url 'add_student_page' %}">Add New Student</a></button>
+            {% if student.student_status == 'Active' %}
+                <tr id = "students-list">
+                    <td class ='student-card' data-department="{{ student.student_department }}">
+                        <div class = "card">
+                            <h2>{{ student.student_fname }}  {{student.student_lname }}</h2>
+                            <p class="title1">{{ student.student_id }}</p>
+                            <p>University: {{ student.student_university }}</p>
+                            <p>Department: {{ student.student_department }}</p>
+                            <p>Courses: {{ student.student_course1 }}, {{ student.student_course2 }}, {{ student.student_course3 }}</p>
+                            <div style="margin: 24px 0;"></div>
+                            <button><a href="../edit_student_page/{{ student.id }}">Edit</a></button>
+                        </div>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+    </table>
+    <div><br><br><br></div>
+    <button class = "create_new">
+        <a href="{% url 'add_student_page' %}">Add New Student</a></button>
 
 
-<script>
-   var dept = document.getElementById("filter_dept");
-    var std_name = document.getElementById("std-name");
-    var stds = document.getElementsByClassName("student-card");
-    dept.addEventListener("change", function(){
-        for (var i = 0; i < stds.length; i++) {
-            if (dept.value == stds[i].getAttribute("data-department") || dept.value == "") {
-                stds[i].style.display = "table-cell";
-            } else {
-                stds[i].style.display = "none";
+    <script>
+        var dept = document.getElementById("filter_dept");
+        var std_name = document.getElementById("std-name");
+        var stds = document.getElementsByClassName("student-card");
+        dept.addEventListener("change", function(){
+            for (var i = 0; i < stds.length; i++) {
+                if (dept.value == stds[i].getAttribute("data-department") || dept.value == "") {
+                    stds[i].style.display = "table-cell";
+                } else {
+                    stds[i].style.display = "none";
+                }
             }
-        }
-    });
-    std_name.addEventListener("keyup", function(){
-        var dept = document.getElementById("filter_dept").value;
-        for (var i = 0; i < stds.length; i++) {
-            var dept2 = stds[i].getAttribute("data-department");
-            if (stds[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(std_name.value.toLowerCase()) && (dept == "" || dept ==dept2)) {
-                stds[i].style.display = "table-cell";
-            } else {
-                stds[i].style.display = "none";
+        });
+        std_name.addEventListener("keyup", function(){
+            var dept = document.getElementById("filter_dept").value;
+            for (var i = 0; i < stds.length; i++) {
+                var dept2 = stds[i].getAttribute("data-department");
+                if (stds[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(std_name.value.toLowerCase()) && (dept == "" || dept ==dept2)) {
+                    stds[i].style.display = "table-cell";
+                } else {
+                    stds[i].style.display = "none";
+                }
             }
-        }
-    });
+        });
 
 
-</script>
+    </script>
 {% endblock %}

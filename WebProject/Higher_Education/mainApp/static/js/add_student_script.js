@@ -138,17 +138,21 @@ function validCourses(){
 
 
 function validateForm(){
-    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
+    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("department").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
         alert("Please fill all the fields");
         return false;
     }
-    return validFName() && validLName() && validUni() && validID() && validCourses();
+    else{
+        return validFName() && validLName() && validUni() && validCourses() && validID();
+    }
 }
 
 function validateEditForm(){
-    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("stdID").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("dep").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
+    if(document.getElementById("fname").value == 0 || document.getElementById("lname").value == 0 || document.getElementById("universty").value == 0 || document.getElementById("gender").value == 0 || document.getElementById("department").value == 0 || document.getElementById("status").value == 0 || document.getElementById("course1").value == 0 ||document.getElementById("course2").value == 0 || document.getElementById("course3").value == 0 || document.getElementById("birthday").value == 0){
         alert("Please fill all the fields");
         return false;
     }
-    return validFName() && validLName() && validUni() && validCourses();
+    else{
+        return validFName() && validLName() && validUni() && validCourses();
+    }
 }
