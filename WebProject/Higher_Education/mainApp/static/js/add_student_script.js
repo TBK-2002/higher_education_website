@@ -51,19 +51,19 @@ function showoptions(){
                 courses[data["courses"][course].course_id] = data["courses"][course];
             }
             for(crs in courses){
-                if(courses[crs].course_department == document.getElementsByName("department")[0].value){
-                    const option = document.createElement("option");
-                    const optionText = document.createTextNode(courses[crs].course_name);
-                    option.appendChild(optionText);
-                    option.setAttribute("value", courses[crs].course_name);
-                    document.getElementsByName("course1")[0].appendChild(option);
-                    document.getElementsByName("course2")[0].appendChild(option.cloneNode(true));
-                    document.getElementsByName("course3")[0].appendChild(option.cloneNode(true));
+                    if(courses[crs].course_department == document.getElementsByName("department")[0].value){
+                        const option = document.createElement("option");
+                        const optionText = document.createTextNode(courses[crs].course_name);
+                        option.appendChild(optionText);
+                        option.setAttribute("value", courses[crs].course_name);
+                        document.getElementsByName("course1")[0].appendChild(option);
+                        document.getElementsByName("course2")[0].appendChild(option.cloneNode(true));
+                        document.getElementsByName("course3")[0].appendChild(option.cloneNode(true));
+                    }
                 }
-            }
-        },
-        error: function(error){
-            console.log(error);
+            },
+            error: function(error){
+                console.log(error);
         }
     })
 }

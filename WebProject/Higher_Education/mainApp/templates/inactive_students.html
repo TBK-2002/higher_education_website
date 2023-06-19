@@ -60,8 +60,10 @@ Inactive Students
     std_name.addEventListener("keyup", function(){
         var dept = document.getElementById("filter_dept").value;
         for (var i = 0; i < stds.length; i++) {
+            var str = stds[i].getElementsByTagName("h2")[0].innerHTML;
+            str = str.replace(/\s/g, '');
             var dept2 = stds[i].getAttribute("data-department");
-            if (stds[i].getElementsByTagName("h2")[0].innerHTML.toLowerCase().includes(std_name.value.toLowerCase()) && (dept == "" || dept ==dept2)) {
+            if (str.toLowerCase().includes(std_name.value.toLowerCase().replace(/\s/g, '')) && (dept == "" || dept ==dept2)) {
                 stds[i].style.display = "table-cell";
             } else {
                 stds[i].style.display = "none";
