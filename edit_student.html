@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Add Student</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <script src = "add_student_script.js">   </script>
+    <script src = "js/add_student_script.js">   </script>
     <script>
 
     let loadedStudents = loadStudents();
@@ -102,22 +102,16 @@
       }
     }
 
-      function deleteStudent(){
-        if(document.getElementById("Id").value == "" || loadedStudents[document.getElementById("Id").value] == null){
-            alert("Please enter a valid ID");
-            return;
-        }
-        delete loadedStudents[document.getElementById("Id").value];
-        localStorage.setItem("students", JSON.stringify(loadedStudents));
-        alert("Student deleted successfully");
-        window.location.href = "students.html";
-      }
-    
-        
-        
-        
-
-
+    function deleteStudent(){
+    if(document.getElementById("Id").value == "" || loadedStudents[document.getElementById("Id").value] == null){
+        alert("Please enter a valid ID");
+        return;
+    }
+    delete loadedStudents[document.getElementById("Id").value];
+    localStorage.setItem("students", JSON.stringify(loadedStudents));
+    alert("Student deleted successfully");
+    window.location.href = "students.html";
+    }
 
     </script>
 </head>
