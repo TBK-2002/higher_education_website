@@ -1,4 +1,4 @@
-A demo for a Universtiy Website.
+A demo for a University Website.
 
 The Web Application is developed with two different approaches:
   - Using plain HTML, CSS, and Javascript taking advantage of AJAX and local storage.
